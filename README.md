@@ -18,21 +18,21 @@ Distribuído bajo la GNU General Public License (GPLv3).
 
 ### Contenido:
 
-README.md                   este archivo   
+        README.md                   este archivo   
 
-main.py                     ejecuta la aplicación   
+        main.py                     ejecuta la aplicación   
 		
-window.ui                   interfaz gráfica   
+        window.ui                   interfaz gráfica   
 
-requeriments.txt            librerías a instalar   
+        requeriments.txt            librerías a instalar   
 
-LICENSE					    licencia GPLv3   
+        LICENSE					    licencia GPLv3   
 		
-functions/functions.py      funciones auxiliares   
+        functions/functions.py      funciones auxiliares   
 		
-functions/kmz_converter.py  convierte de kml a shapefile   
+        functions/kmz_converter.py  convierte de kml a shapefile   
 		
-functions/shp2kml.py        convierte de shapefile a kml   
+        functions/shp2kml.py        convierte de shapefile a kml   
 
 ### Uso:
 1.- Clonar o descargar este repositorio   
