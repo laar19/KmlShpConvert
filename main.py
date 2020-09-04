@@ -9,8 +9,8 @@ licencia = "Copyright 2020. All code is copyrighted by the respective authors.\n
 
 ventana = "window.ui"
 
-fileNames1 = list()
-fileNames2 = list()
+fileNames1 = list() # Lista de archivos a convertir de km la shp
+fileNames2 = list() # Lista de archivos a convertir de shp a kml
 
 class MyApp(QtWidgets.QMainWindow):
     def __init__(self):
@@ -18,36 +18,37 @@ class MyApp(QtWidgets.QMainWindow):
         uic.loadUi(ventana, self)
         self.show()
 
-        self.file_list = self.findChild(QtWidgets.QTextBrowser, "file_list")
-        self.file_list_2 = self.findChild(QtWidgets.QTextBrowser, "file_list_2")
+        self.file_list = self.findChild(QtWidgets.QTextBrowser, "file_list")     # Muestra los archivos a convertir de kml a shp, pestaña 1
+        self.file_list_2 = self.findChild(QtWidgets.QTextBrowser, "file_list_2") # Muestra los archivos a convertir de shp a kml, pestaña 2
         
-        self.btn_buscar = self.findChild(QtWidgets.QPushButton, "btn_buscar")
+        self.btn_buscar = self.findChild(QtWidgets.QPushButton, "btn_buscar")     # Botón de buscar archivos, pestaña 1
         self.btn_buscar.clicked.connect(self.buscar1)
-        self.btn_buscar_2 = self.findChild(QtWidgets.QPushButton, "btn_buscar_2")
+        self.btn_buscar_2 = self.findChild(QtWidgets.QPushButton, "btn_buscar_2") # Botón de buscar archivos, pestaña 2
         self.btn_buscar_2.clicked.connect(self.buscar2)
 
-        self.btn_aceptar = self.findChild(QtWidgets.QPushButton, "btn_aceptar")
+        self.btn_aceptar = self.findChild(QtWidgets.QPushButton, "btn_aceptar")     # Botón para convertir archivos de kml a shp, pestaña 1
         self.btn_aceptar.clicked.connect(self.kml_to_shp)
-        self.btn_aceptar_2 = self.findChild(QtWidgets.QPushButton, "btn_aceptar_2")
+        self.btn_aceptar_2 = self.findChild(QtWidgets.QPushButton, "btn_aceptar_2") # Botón para convertir archivos de shp a kml, pestaña 2
         self.btn_aceptar_2.clicked.connect(self.shp_to_kml)
 
-        self.btn_limpiar = self.findChild(QtWidgets.QPushButton, "btn_limpiar")
+        self.btn_limpiar = self.findChild(QtWidgets.QPushButton, "btn_limpiar")     # Botón para limpiar la lista de archivos, pestaña 1
         self.btn_limpiar.clicked.connect(self.limpiar)
-        self.btn_limpiar_2 = self.findChild(QtWidgets.QPushButton, "btn_limpiar_2")
+        self.btn_limpiar_2 = self.findChild(QtWidgets.QPushButton, "btn_limpiar_2") # Botón para limpiar la lista de archivos, pestaña 2
         self.btn_limpiar_2.clicked.connect(self.limpiar)
 
-        self.btn_about = self.findChild(QtWidgets.QPushButton, "btn_about")
+        self.btn_about = self.findChild(QtWidgets.QPushButton, "btn_about") # About Qt
         self.btn_about.clicked.connect(self.aboutQt)
 
-        self.btn_autores = self.findChild(QtWidgets.QPushButton, "btn_autores")
+        self.btn_autores = self.findChild(QtWidgets.QPushButton, "btn_autores") # Autores
         self.btn_autores.clicked.connect(self.autores)
 
-        self.btn_licencia = self.findChild(QtWidgets.QPushButton, "btn_licencia")
+        self.btn_licencia = self.findChild(QtWidgets.QPushButton, "btn_licencia") # Licencia
         self.btn_licencia.clicked.connect(self.licencia)
 
-        self.btn_salir = self.findChild(QtWidgets.QPushButton, "btn_salir")
+        self.btn_salir = self.findChild(QtWidgets.QPushButton, "btn_salir") # Salir
         self.btn_salir.clicked.connect(self.salir)
 
+    # Función para buscar los archivos kml en el sistema de archivos
     def buscar1(self):
         dialog = QtWidgets.QFileDialog(self)
         dialog.setFileMode(QtWidgets.QFileDialog.AnyFile)
@@ -56,10 +57,11 @@ class MyApp(QtWidgets.QMainWindow):
         
         global fileNames1
         if dialog.exec_():
-            fileNames1.append(dialog.selectedFiles()[0])
+            fileNames1.append(dialog.selectedFiles()[0]) # Añade el kml seleccionado a la lista de archivos a convertir
 
-        self.file_list.setText(list_to_string(fileNames1))
+        self.file_list.setText(list_to_string(fileNames1)) # Muestra todos los kml seleccionados
 
+    # Función para buscar los archivos shp en el sistema de archivos
     def buscar2(self):
         dialog = QtWidgets.QFileDialog(self)
         dialog.setFileMode(QtWidgets.QFileDialog.AnyFile)
@@ -68,10 +70,11 @@ class MyApp(QtWidgets.QMainWindow):
         
         global fileNames2
         if dialog.exec_():
-            fileNames2.append(dialog.selectedFiles()[0])
+            fileNames2.append(dialog.selectedFiles()[0]) # Añade el shp seleccionado a la lista de archivos a convertir
 
-        self.file_list_2.setText(list_to_string(fileNames2))
+        self.file_list_2.setText(list_to_string(fileNames2)) # Muestra todos los shp seleccionados
 
+    # Convierte los kml seleccionados
     def kml_to_shp(self):
         for i in fileNames1:
             return_value = kmz_converter(i)
@@ -80,11 +83,13 @@ class MyApp(QtWidgets.QMainWindow):
         else:
             QtWidgets.QMessageBox.about(self, "Error", "Ocurrió un error durante la conversión")
 
+    # Convierte los shp seleccionados
     def shp_to_kml(self):
         for i in fileNames2:
             crea_archivo_kml("archivo.kml", shp2kml(i))
         QtWidgets.QMessageBox.about(self, "Listo", "Conversión exitosa")
 
+    # Limpia la lista de archivos seleccionados
     def limpiar(self):
         self.file_list.setText("")
         self.file_list_2.setText("")
@@ -95,7 +100,6 @@ class MyApp(QtWidgets.QMainWindow):
         QtWidgets.QMessageBox.aboutQt(self)
     
     def autores(self):
-        #autores = "Rosaura Rojas <rosaurarojas1989@gmail.com>\n\nLuis Acevedo  <laar@protonmail.com>"
         autors = autores[0] + " " + autores[1] + "\n\n" + autores[2] + "  " + autores[3]
         QtWidgets.QMessageBox.about(self, "Autores", autors)
         
