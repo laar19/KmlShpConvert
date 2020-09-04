@@ -17,21 +17,21 @@ Distribuído bajo la GNU General Public License (GPLv3).
 
 ### Contenido:
 
-- README.md                   este archivo
+- *__README.md__* este archivo
 
-- main.py                     ejecuta la aplicación
+- *__main.py__* ejecuta la aplicación
 		
-- window.ui                   interfaz gráfica
+- *__window.ui__* interfaz gráfica
 
-- requeriments.txt            librerías a instalar
+- *__requeriments.txt__* librerías a instalar
 
-- LICENSE                     licencia GPLv3
+- *__LICENSE__* licencia GPLv3
 		
-- functions/functions.py      funciones auxiliares
+- *__functions/functions.py__* funciones auxiliares
 		
-- functions/kmz_converter.py  convierte de kml a shapefile https://github.com/tomtl/kmz-converter
+- *__functions/kmz_converter.py__* convierte de kml a shapefile https://github.com/tomtl/kmz-converter
 		
-- functions/shp2kml.py        convierte de shapefile a kml https://github.com/cthrall/shp2kml
+- *__functions/shp2kml.py__* convierte de shapefile a kml https://github.com/cthrall/shp2kml
 
 ### Uso:
 1.- Clonar o descargar este repositorio   
