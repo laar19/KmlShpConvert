@@ -49,9 +49,6 @@ class MyApp(QtWidgets.QMainWindow):
         self.btn_salir = self.findChild(QtWidgets.QPushButton, "btn_salir") # Salir
         self.btn_salir.clicked.connect(self.salir)
 
-        self.progressBar = self.findChild(QtWidgets.QProgressBar, "progressBar")
-        self.progressBar.setValue(0)
-
     # Función para buscar los archivos kml en el sistema de archivos
     def buscar1(self):
         dialog = QtWidgets.QFileDialog(self)
