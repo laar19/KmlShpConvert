@@ -1,10 +1,11 @@
-from PyQt5 import QtWidgets, uic
+from PyQt5 import uic
 from functions.functions import *
 from functions.kmz_converter import *
 from functions.shp2kml import *
 
 appname = "KmlShpConvert"
 autores = ["Rosaura Rojas", "<rosaurarojas1989@gmail.com>", "Luis Acevedo", "<laar@protonmail.com>"]
+creditos = ["https://github.com/cthrall", "https://github.com/tomtl"]
 licencia = "Copyright 2020. All code is copyrighted by the respective authors.\n" + appname + " can be redistributed and/or modified under the terms of the GNU GPL versions 3 or by any future license endorsed by " + autores[0] + " and " + autores[2] + "." + "\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
 
 ventana = "window.ui"
@@ -54,12 +55,27 @@ class MyApp(QtWidgets.QMainWindow):
         dialog.setFileMode(QtWidgets.QFileDialog.AnyFile)
         dialog.setNameFilter("File (*.kml *.kmz)")
         dialog.setViewMode(QtWidgets.QFileDialog.Detail)
-        
+
+        """
+        Seleccionar múltiples archivos
+        """
+        select_multiple_files(dialog)
+
+        global fileNames1
+        if dialog.exec():
+            for i in dialog.selectedFiles():
+                fileNames1.append(i) # Añade los kml seleccionados a la lista de archivos a convertir
+
+        self.file_list.setText(list_to_string(fileNames1)) # Muestra todos los kml seleccionados
+
+        """
+        # Seleccionar un sólo archivo
         global fileNames1
         if dialog.exec_():
             fileNames1.append(dialog.selectedFiles()[0]) # Añade el kml seleccionado a la lista de archivos a convertir
 
         self.file_list.setText(list_to_string(fileNames1)) # Muestra todos los kml seleccionados
+        """
 
     # Función para buscar los archivos shp en el sistema de archivos
     def buscar2(self):
@@ -68,26 +84,44 @@ class MyApp(QtWidgets.QMainWindow):
         dialog.setNameFilter("File (*.shp)")
         dialog.setViewMode(QtWidgets.QFileDialog.Detail)
         
-        global fileNames2
-        if dialog.exec_():
-            fileNames2.append(dialog.selectedFiles()[0]) # Añade el shp seleccionado a la lista de archivos a convertir
+        """
+        Seleccionar múltiples archivos
+        """
+        select_multiple_files(dialog)
 
-        self.file_list_2.setText(list_to_string(fileNames2)) # Muestra todos los shp seleccionados
+        global fileNames2
+        if dialog.exec():
+            for i in dialog.selectedFiles():
+                fileNames2.append(i) # Añade los kml seleccionados a la lista de archivos a convertir
+
+        self.file_list_2.setText(list_to_string(fileNames2)) # Muestra todos los kml seleccionados
 
     # Convierte los kml seleccionados
     def kml_to_shp(self):
-        for i in fileNames1:
-            return_value = kmz_converter(i)
-        if return_value == 0:
-            QtWidgets.QMessageBox.about(self, "Listo", "Conversión exitosa")
+        if len(fileNames1) == 0:
+            QtWidgets.QMessageBox.critical(self, "Error", "Debe seleccionar por lo menos un archivo")
         else:
-            QtWidgets.QMessageBox.about(self, "Error", "Ocurrió un error durante la conversión")
+            for i in fileNames1:
+                try:
+                    kmz_converter(i)
+                except:
+                    QtWidgets.QMessageBox.critical(self, "Error", "Ocurrió un error durante la conversión.\n" + "El archivo: " + i + "\nPosiblemente esté corrupto o dañado")
+                else:
+                    QtWidgets.QMessageBox.about(self, "Listo", "Conversión exitosa")
 
     # Convierte los shp seleccionados
     def shp_to_kml(self):
-        for i in fileNames2:
-            crea_archivo_kml("archivo.kml", shp2kml(i))
-        QtWidgets.QMessageBox.about(self, "Listo", "Conversión exitosa")
+        if len(fileNames2) == 0:
+            QtWidgets.QMessageBox.critical(self, "Error", "Debe seleccionar por lo menos un archivo")
+        else:
+            for i in range(len(fileNames2)):
+                try:
+                    ruta = ruta_salida() + "/" + str(i) + "_archivo.kml"
+                    crea_archivo_kml(ruta, shp2kml(fileNames2[i]))
+                except:
+                    QtWidgets.QMessageBox.critical(self, "Error", "Ocurrió un error durante la conversión.\n" + "El archivo: " + fileNames2[i] + "\nPosiblemente esté corrupto o dañado")
+                else:
+                    QtWidgets.QMessageBox.about(self, "Listo", "Conversión exitosa")
 
     # Limpia la lista de archivos seleccionados
     def limpiar(self):
@@ -100,8 +134,8 @@ class MyApp(QtWidgets.QMainWindow):
         QtWidgets.QMessageBox.aboutQt(self)
     
     def autores(self):
-        autors = autores[0] + " " + autores[1] + "\n\n" + autores[2] + "  " + autores[3]
-        QtWidgets.QMessageBox.about(self, "Autores", autors)
+        mensaje = "Autores:\n" + autores[0] + " " + autores[1] + "\n" + autores[2] + "  " + autores[3] + "\n\n\n" + "Cŕeditos:\n" + creditos[0] + "\n" + creditos[1]
+        QtWidgets.QMessageBox.about(self, "Autores", mensaje)
         
     def licencia(self):
         QtWidgets.QMessageBox.about(self, "Licencia", licencia)
@@ -111,7 +145,7 @@ class MyApp(QtWidgets.QMainWindow):
 
 if __name__ == "__main__":
     
-    print("KML2SHP Copyright (C) 2020 Rosaura, Luis Acevedo.\nEste programa viene con ABSOLUTAMENTE NINGUNA GARANTÍA.\nEsto es software libre, y le invitamos a redistribuirlo\nbajo ciertas condiciones.\nPor favor, leer el archivo README.")
+    print(appname + " Copyright (C) 2020 " + autores[0] + ", " + autores[2] + ".\nEste programa viene con ABSOLUTAMENTE NINGUNA GARANTÍA.\nEsto es software libre, y le invitamos a redistribuirlo\nbajo ciertas condiciones.\nPor favor, leer el archivo README.")
 
     app = QtWidgets.QApplication(sys.argv)
     window = MyApp()

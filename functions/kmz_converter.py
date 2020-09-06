@@ -129,8 +129,6 @@ def kmz_converter(path):
     if polygons_counter == 0:
         driver.DeleteDataSource(polygons_shp_name)
 
-    return 0
-
 def open_kmz(kmz_file):
     driver = ogr.GetDriverByName('LIBKML')
     data_source = driver.Open(kmz_file, gdalconst.GA_ReadOnly)
