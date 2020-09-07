@@ -8,7 +8,7 @@ autores = ["Rosaura Rojas", "<rrojas@abae.gob.ve>", "Luis Acevedo", "<laar@proto
 creditos = ["https://github.com/cthrall", "https://github.com/tomtl"]
 licencia = "Copyright 2020. All code is copyrighted by the respective authors.\n" + appname + " can be redistributed and/or modified under the terms of the GNU GPL versions 3 or by any future license endorsed by " + autores[0] + " and " + autores[2] + "." + "\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
 
-ventana = "window.ui"
+ventana = "ui/window.ui"
 
 fileNames1 = list() # Lista de archivos a convertir de km la shp
 fileNames2 = list() # Lista de archivos a convertir de shp a kml

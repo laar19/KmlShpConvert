@@ -279,7 +279,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>icons/gdalicon.png</pixmap>
+     <pixmap>../img/gdalicon.png</pixmap>
     </property>
    </widget>
   </widget>
