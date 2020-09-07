@@ -35,6 +35,6 @@ Distribuído bajo la GNU General Public License (GPLv3).
 
 ### Uso:
 1.- Clonar o descargar este repositorio   
-2.- Dentro de la carpeta del repositorio iniciar un nuevo entorno virtual: __virtualenv --python=python3.7 .__   
+2.- Dentro de la carpeta del repositorio iniciar un nuevo entorno virtual: __virtualenv --python=python3 .__   
 3.- Instalar las librerías necesarias: __pip3 install -r requeriments.txt__   
 4.- Ejecutar la aplicación: __python main.py__
