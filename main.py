@@ -4,7 +4,7 @@ from functions.kmz_converter import *
 from functions.shp2kml import *
 
 appname = "KmlShpConvert"
-autores = ["Rosaura Rojas", "<rosaurarojas1989@gmail.com>", "Luis Acevedo", "<laar@protonmail.com>"]
+autores = ["Rosaura Rojas", "<rrojas@abae.gob.ve>", "Luis Acevedo", "<laar@protonmail.com>"]
 creditos = ["https://github.com/cthrall", "https://github.com/tomtl"]
 licencia = "Copyright 2020. All code is copyrighted by the respective authors.\n" + appname + " can be redistributed and/or modified under the terms of the GNU GPL versions 3 or by any future license endorsed by " + autores[0] + " and " + autores[2] + "." + "\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
 
