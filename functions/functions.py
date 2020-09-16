@@ -1,38 +1,38 @@
 import os
 import platform
-sistema_operativo = platform.system() # Conoce el tipo de sistema operativo
+operative_system = platform.system() # Identify operative system
 
 from PyQt5 import QtWidgets
 
-# Convierte la lista de archivos seleccionados a una sóla cadena
-# para ser mostrada en la ventana
-def list_to_string(lista):
-    cadena = str()
-    for i in range(len(lista)):
-        cadena += str(i+1) + " - " + lista[i] + "\n\n"
-    return cadena
+# Convert selected file list_ to string
+# in order to shown in the window
+def list_to_string(list_):
+    string = str()
+    for i in range(len(list_)):
+        string += str(i+1) + " - " + list_[i] + "\n\n"
+    return string
 
-# Crea el archivo kml generado desde el shp en el sistema de archivos
-def crea_archivo_kml(nombre_archivo, contenido):
-    archivo_kml = open(nombre_archivo, "w")
-    archivo_kml.write(contenido)
-    archivo_kml.close()
+# Create generated kml file from shp on the file system
+def create_kml_file(file_name, content):
+    kml_file = open(file_name, "w")
+    kml_file.write(content)
+    kml_file.close()
 
-# Especifica la ruta de salida según el sistema operativo
-def ruta_salida():
-    ruta = str()
+# Specify out location on file system
+def out_location():
+    location = str()
     
-    if sistema_operativo == "Windows":
-        ruta = os.path.join(os.path.join(os.environ["USERPROFILE"]), "Desktop")
-        #ruta = os.path.join(os.path.join(os.environ["HOMEPATH"]), "Desktop")
+    if operative_system == "Windows":
+        location = os.path.join(os.path.join(os.environ["USERPROFILE"]), "Desktop")
+        #location = os.path.join(os.path.join(os.environ["HOMEPATH"]), "Desktop")
     else:
-        ruta = os.path.join(os.path.join(os.path.expanduser("~")))
+        location = os.path.join(os.path.join(os.path.expanduser("~")))
 
-    return ruta
+    return location
 
-# Seleccionar múltiples archivos
+# Select multiple files
 def select_multiple_files(dialog):
-    file_view = dialog.findChild(QtWidgets.QListView, "listView")
+    file_view = dialog.findChild(QtWidgets.QListView, "ListView")
     if file_view:
         file_view.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
     f_tree_view = dialog.findChild(QtWidgets.QTreeView)

@@ -50,21 +50,21 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="btn_buscar">
+          <widget class="QPushButton" name="btn_search">
            <property name="text">
             <string>Buscar</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="btn_limpiar">
+          <widget class="QPushButton" name="btn_clear">
            <property name="text">
             <string>Limpiar</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="btn_aceptar">
+          <widget class="QPushButton" name="btn_accept">
            <property name="palette">
             <palette>
              <active>
@@ -110,7 +110,7 @@
         </layout>
        </item>
        <item>
-        <widget class="QTextBrowser" name="file_list">
+        <widget class="QTextBrowser" name="kml_file_list">
          <property name="documentTitle">
           <string/>
          </property>
@@ -143,21 +143,21 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="btn_buscar_2">
+          <widget class="QPushButton" name="btn_search_2">
            <property name="text">
             <string>Buscar</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="btn_limpiar_2">
+          <widget class="QPushButton" name="btn_clear_2">
            <property name="text">
             <string>Limpiar</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="btn_aceptar_2">
+          <widget class="QPushButton" name="btn_accept_2">
            <property name="palette">
             <palette>
              <active>
@@ -203,7 +203,7 @@
         </layout>
        </item>
        <item>
-        <widget class="QTextBrowser" name="file_list_2">
+        <widget class="QTextBrowser" name="shp_file_list">
          <property name="documentTitle">
           <string/>
          </property>
@@ -231,21 +231,21 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btn_autores">
+      <widget class="QPushButton" name="btn_authors">
        <property name="text">
         <string>Autores</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btn_licencia">
+      <widget class="QPushButton" name="btn_license">
        <property name="text">
         <string>Licencia</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btn_salir">
+      <widget class="QPushButton" name="btn_exit">
        <property name="text">
         <string>Salir</string>
        </property>

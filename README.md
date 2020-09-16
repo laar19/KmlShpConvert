@@ -1,6 +1,6 @@
 # KmlShpConvert
 
-## Rosaura Rojas <rrojas@abae.gob.ve>
+## Ing. Rosaura Rojas <rrojas@abae.gob.ve>
 ## Luis Acevedo  <laar@protonmail.com>
 
 ### Aplicación para convertir archivos con extensión .kml (Keyhole Markup Language) a .shp (Shapefile), y vice versa
@@ -37,4 +37,4 @@ Distribuído bajo la GNU General Public License (GPLv3).
 1.- Clonar o descargar este repositorio   
 2.- Dentro de la carpeta del repositorio iniciar un nuevo entorno virtual: __virtualenv --python=python3 .__   
 3.- Instalar las librerías necesarias: __pip3 install -r requeriments.txt__   
-4.- Ejecutar la aplicación: __python main.py__
+4.- Ejecutar la aplicación: __python main.py__   
