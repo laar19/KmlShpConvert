@@ -133,11 +133,11 @@ class MyApp(QtWidgets.QMainWindow):
         QtWidgets.QMessageBox.aboutQt(self)
     
     def authors(self):
-        mensaje = "authors:\n" + authors[0] + " " + authors[1] + "\n" + authors[2] + "  " + authors[3] + "\n\n\n" + "Cŕeditos:\n" + credits_[0] + "\n" + credits_[1]
-        QtWidgets.QMessageBox.about(self, "authors", mensaje)
+        mensaje = "Autores:\n" + authors[0] + " " + authors[1] + "\n" + authors[2] + "  " + authors[3] + "\n\n\n" + "Cŕeditos:\n" + credits_[0] + "\n" + credits_[1]
+        QtWidgets.QMessageBox.about(self, "Autores", mensaje)
         
     def license_(self):
-        QtWidgets.QMessageBox.about(self, "license_", license_)
+        QtWidgets.QMessageBox.about(self, "Licencia", license_)
 
     def exit(self):
         sys.exit()
