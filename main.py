@@ -101,9 +101,9 @@ class MyApp(QtWidgets.QMainWindow):
         if len(kml_file_names) == 0:
             QtWidgets.QMessageBox.critical(self, "Error", "Debe seleccionar por lo menos un archivo")
         else:
-            for i in kml_file_names:
+            for i in range(len(kml_file_names)):
                 try:
-                    kmz_converter(i)
+                    kmz_converter(kml_file_names[i], i)
                 except:
                     QtWidgets.QMessageBox.critical(self, "Error", "Ocurrió un error durante la conversión.\n" + "El archivo: " + i + "\nPosiblemente esté corrupto o dañado")
                 else:
@@ -116,7 +116,7 @@ class MyApp(QtWidgets.QMainWindow):
         else:
             for i in range(len(shp_file_names)):
                 try:
-                    shp2kml_(shp_file_names[i])
+                    shp2kml_(shp_file_names[i], i)
                 except:
                     QtWidgets.QMessageBox.critical(self, "Error", "Ocurrió un error durante la conversión.\n" + "El archivo: " + shp_file_names[i] + "\nPosiblemente esté corrupto o dañado")
                 else:

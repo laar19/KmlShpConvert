@@ -11,15 +11,15 @@ except:
 import code
 # code.interact(local=locals())
 
-def kmz_converter(path):
+def kmz_converter(path, number):
     # open the input KMZ file
     kmz_file = path
     data_source = open_kmz(kmz_file)
 
     # create the output shapefiles
-    points_shp_name = set_output_filename(kmz_file, 'points')
-    lines_shp_name = set_output_filename(kmz_file, 'lines')
-    polygons_shp_name = set_output_filename(kmz_file, 'polygons')
+    points_shp_name = set_output_filename(kmz_file, 'points', number)
+    lines_shp_name = set_output_filename(kmz_file, 'lines', number)
+    polygons_shp_name = set_output_filename(kmz_file, 'polygons', number)
 
     points_datastore = create_output_datastore(points_shp_name)
     points_layer = create_output_layer(points_datastore, ogr.wkbMultiPoint)
@@ -139,10 +139,16 @@ def open_kmz(kmz_file):
 
     return data_source
 
-def set_output_filename(input_filename, geom_type):
+def set_output_filename(input_filename, geom_type, number):
     # set the output filename by appending the geometry type to input filename
     dir, filename = os.path.split(input_filename)
-    output_filename = os.path.splitext(filename)[0] + '_' + geom_type + '.shp'
+    """
+    if number == None:
+        output_filename = os.path.splitext(filename)[0] + '_' + geom_type + '.shp'
+    else:
+        output_filename = os.path.splitext(filename)[0] + '_' + geom_type + '_' + str(number) + '.shp'
+    """
+    output_filename = os.path.splitext(filename)[0] + '_' + geom_type + '_' + str(number) + '.shp'
     output_shapefile = os.path.join(dir, output_filename)
     return output_shapefile
 

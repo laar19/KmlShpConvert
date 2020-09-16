@@ -5,10 +5,13 @@ import os
 # define the mainline method
 # ----------------------------------------------------------------------------
 
-def shp2kml_(shpfile):
+def shp2kml_(shpfile, number):
     shpFile = shpfile
-    file_kml = shpFile.replace('.shp','.kml')
-    kmlFile = file_kml.replace('-','_')
+    #file_kml = shpFile.replace('.shp','.kml')
+    #kmlFile = shpFile.replace('.shp','.kml')
+    kmlFile = shpFile.replace('.shp', '_'+str(number)+'.kml')
+    #kmlFile = kmlFile.replace('-','_')
+    kmlFile.replace('-','_')
         
     maxRecords = 0
     
