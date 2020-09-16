@@ -1,11 +1,11 @@
 from PyQt5 import uic
 from functions.functions import *
 from functions.kmz_converter import *
-from functions.shp2kml import *
+from functions.shp_to_kml import *
 
 appname = "KmlShpConvert"
 authors = ["Rosaura Rojas", "<rrojas@abae.gob.ve>", "Luis Acevedo", "<laar@protonmail.com>"]
-credits_ = ["https://github.com/cthrall", "https://github.com/tomtl"]
+credits_ = ["https://github.com/DavidDarlingKhepryOrg", "https://github.com/tomtl"]
 license_ = "Copyright 2020. All code is copyrighted by the respective authors.\n" + appname + " can be redistributed and/or modified under the terms of the GNU GPL versions 3 or by any future license_ endorsed by " + authors[0] + " and " + authors[2] + "." + "\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
 
 window = "ui/window.ui"
@@ -116,8 +116,7 @@ class MyApp(QtWidgets.QMainWindow):
         else:
             for i in range(len(shp_file_names)):
                 try:
-                    location = out_location() + "/" + str(i) + "_file.kml"
-                    create_kml_file(location, shp2kml(shp_file_names[i]))
+                    shp2kml_(shp_file_names[i])
                 except:
                     QtWidgets.QMessageBox.critical(self, "Error", "Ocurrió un error durante la conversión.\n" + "El archivo: " + shp_file_names[i] + "\nPosiblemente esté corrupto o dañado")
                 else:

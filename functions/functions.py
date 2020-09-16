@@ -12,12 +12,6 @@ def list_to_string(list_):
         string += str(i+1) + " - " + list_[i] + "\n\n"
     return string
 
-# Create generated kml file from shp on the file system
-def create_kml_file(file_name, content):
-    kml_file = open(file_name, "w")
-    kml_file.write(content)
-    kml_file.close()
-
 # Specify out location on file system
 def out_location():
     location = str()

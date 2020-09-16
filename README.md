@@ -5,7 +5,7 @@
 
 ### Aplicación para convertir archivos con extensión .kml (Keyhole Markup Language) a .shp (Shapefile), y vice versa
 
-Créditos para https://github.com/cthrall y https://github.com/tomtl   
+Créditos para https://github.com/DavidDarlingKhepryOrg y https://github.com/tomtl   
 Las funciones para convertir los archivos fueron adaptadas de sus   
 repositorios
 
@@ -31,7 +31,7 @@ Distribuído bajo la GNU General Public License (GPLv3).
 		
 - *__functions/kmz_converter.py__* convierte de kml a shapefile https://github.com/tomtl/kmz-converter
 		
-- *__functions/shp2kml.py__* convierte de shapefile a kml https://github.com/cthrall/shp2kml
+- *__functions/shp2kml.py__* convierte de shapefile a kml https://github.com/DavidDarlingKhepryOrg/PyShp2Csv2Kml
 
 ### Uso:
 1.- Clonar o descargar este repositorio   
