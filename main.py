@@ -43,7 +43,7 @@ class MyApp(QtWidgets.QMainWindow):
         self.btn_authors = self.findChild(QtWidgets.QPushButton, "btn_authors")   # Authors
         self.btn_authors.clicked.connect(self.authors)
 
-        self.btn_license = self.findChild(QtWidgets.QPushButton, "btn_license")   # license
+        self.btn_license = self.findChild(QtWidgets.QPushButton, "btn_license")   # License
         self.btn_license.clicked.connect(self.license_)
 
         self.btn_exit = self.findChild(QtWidgets.QPushButton, "btn_exit")         # Exit
