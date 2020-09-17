@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>660</width>
-    <height>448</height>
+    <height>463</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,8 +19,8 @@
      <rect>
       <x>10</x>
       <y>0</y>
-      <width>641</width>
-      <height>381</height>
+      <width>581</width>
+      <height>391</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -30,80 +30,22 @@
      <attribute name="title">
       <string>KML to SHP</string>
      </attribute>
-     <widget class="QWidget" name="layoutWidget_2">
+     <widget class="QWidget" name="layoutWidget_4">
       <property name="geometry">
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>621</width>
-        <height>331</height>
+        <width>551</width>
+        <height>341</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
+      <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
          <item>
-          <widget class="QLabel" name="label">
+          <widget class="QLabel" name="label_5">
            <property name="text">
             <string>Archivo(s) KML:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btn_search">
-           <property name="text">
-            <string>Buscar</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btn_clear">
-           <property name="text">
-            <string>Limpiar</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btn_accept">
-           <property name="palette">
-            <palette>
-             <active>
-              <colorrole role="Button">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>0</red>
-                 <green>170</green>
-                 <blue>0</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </active>
-             <inactive>
-              <colorrole role="Button">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>0</red>
-                 <green>170</green>
-                 <blue>0</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </inactive>
-             <disabled>
-              <colorrole role="Button">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>0</red>
-                 <green>170</green>
-                 <blue>0</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </disabled>
-            </palette>
-           </property>
-           <property name="text">
-            <string>Aceptar</string>
            </property>
           </widget>
          </item>
@@ -128,7 +70,7 @@
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>621</width>
+        <width>551</width>
         <height>331</height>
        </rect>
       </property>
@@ -139,64 +81,6 @@
           <widget class="QLabel" name="label_2">
            <property name="text">
             <string>Archivo(s) SHP:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btn_search_2">
-           <property name="text">
-            <string>Buscar</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btn_clear_2">
-           <property name="text">
-            <string>Limpiar</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btn_accept_2">
-           <property name="palette">
-            <palette>
-             <active>
-              <colorrole role="Button">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>0</red>
-                 <green>170</green>
-                 <blue>0</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </active>
-             <inactive>
-              <colorrole role="Button">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>0</red>
-                 <green>170</green>
-                 <blue>0</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </inactive>
-             <disabled>
-              <colorrole role="Button">
-               <brush brushstyle="SolidPattern">
-                <color alpha="255">
-                 <red>0</red>
-                 <green>170</green>
-                 <blue>0</blue>
-                </color>
-               </brush>
-              </colorrole>
-             </disabled>
-            </palette>
-           </property>
-           <property name="text">
-            <string>Aceptar</string>
            </property>
           </widget>
          </item>
@@ -217,7 +101,7 @@
     <property name="geometry">
      <rect>
       <x>280</x>
-      <y>400</y>
+      <y>420</y>
       <width>368</width>
       <height>31</height>
      </rect>
@@ -253,34 +137,110 @@
      </item>
     </layout>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="Line" name="line">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>410</y>
-      <width>71</width>
-      <height>17</height>
+      <y>400</y>
+      <width>631</width>
+      <height>21</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Powered by</string>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>390</y>
-      <width>41</width>
-      <height>51</height>
+      <x>600</x>
+      <y>20</y>
+      <width>51</width>
+      <height>146</height>
      </rect>
     </property>
-    <property name="text">
-     <string/>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QPushButton" name="btn_search">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../icons/Start-Menu-Search-icon.png</normaloff>../icons/Start-Menu-Search-icon.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>32</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_clear">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../icons/Actions-edit-clear-locationbar-rtl-icon.png</normaloff>../icons/Actions-edit-clear-locationbar-rtl-icon.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>32</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_accept">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../icons/Accept-icon.png</normaloff>../icons/Accept-icon.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>32</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>420</y>
+      <width>107</width>
+      <height>34</height>
+     </rect>
     </property>
-    <property name="pixmap">
-     <pixmap>../img/gdalicon.png</pixmap>
-    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Powered by</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>../img/gdalicon.png</pixmap>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <action name="actionAutores">

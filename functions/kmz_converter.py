@@ -141,7 +141,7 @@ def open_kmz(kmz_file):
 def set_output_filename(input_filename, geom_type, number):
     # set the output filename by appending the geometry type to input filename
     dir, filename = os.path.split(input_filename)
-    output_filename = os.path.splitext(filename)[0] + '_' + geom_type + '_' + str(number) + '.shp'
+    output_filename = os.path.splitext(filename)[0] + '_' + geom_type + '_NUEVO_' + str(number) + '.shp'
     output_shapefile = os.path.join(dir, output_filename)
     return output_shapefile
 

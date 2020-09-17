@@ -7,7 +7,7 @@ import os
 
 def shp2kml_(shpfile, number):
     shpFile = shpfile
-    kmlFile = shpFile.replace('.shp', '_'+str(number)+'.kml')
+    kmlFile = shpFile.replace('.shp', '_NUEVO_'+str(number)+'.kml')
     kmlFile.replace('-', '_')
         
     maxRecords = 0

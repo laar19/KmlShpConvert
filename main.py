@@ -3,8 +3,8 @@ from functions.functions import *
 from functions.kmz_converter import *
 from functions.shp_to_kml import *
 
-appname = "KmlShpConvert"
-authors = ["Rosaura Rojas", "<rrojas@abae.gob.ve>", "Luis Acevedo", "<laar@protonmail.com>"]
+appname  = "KmlShpConvert"
+authors  = ["Rosaura Rojas", "<rrojas@abae.gob.ve>", "Luis Acevedo", "<laar@protonmail.com>"]
 credits_ = ["https://github.com/DavidDarlingKhepryOrg", "https://github.com/tomtl"]
 license_ = "Copyright 2020. All code is copyrighted by the respective authors.\n" + appname + " can be redistributed and/or modified under the terms of the GNU GPL versions 3 or by any future license_ endorsed by " + authors[0] + " and " + authors[2] + "." + "\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
 
@@ -22,20 +22,14 @@ class MyApp(QtWidgets.QMainWindow):
         self.kml_file_list = self.findChild(QtWidgets.QTextBrowser, "kml_file_list") # Show file list to convert, from kml to shp, tab 1
         self.shp_file_list = self.findChild(QtWidgets.QTextBrowser, "shp_file_list") # Show file list to convert, from shp to kml, tab 2
         
-        self.btn_search = self.findChild(QtWidgets.QPushButton, "btn_search")        # Search files button, tab 1
-        self.btn_search.clicked.connect(self.search_kml)
-        self.btn_search_2 = self.findChild(QtWidgets.QPushButton, "btn_search_2")    # Search files button, tab 2
-        self.btn_search_2.clicked.connect(self.search_shp)
+        self.btn_search = self.findChild(QtWidgets.QPushButton, "btn_search")        # Search files button
+        self.btn_search.clicked.connect(self.search)
 
-        self.btn_accept = self.findChild(QtWidgets.QPushButton, "btn_accept")        # Convert from kml to shp button, tab 1
-        self.btn_accept.clicked.connect(self.kml_to_shp)
-        self.btn_accept_2 = self.findChild(QtWidgets.QPushButton, "btn_accept_2")    # Convert from kml to shp button, tab 2
-        self.btn_accept_2.clicked.connect(self.shp_to_kml)
+        self.btn_accept = self.findChild(QtWidgets.QPushButton, "btn_accept")        # Convert from kml to shp button
+        self.btn_accept.clicked.connect(self.conversion)
 
-        self.btn_clear = self.findChild(QtWidgets.QPushButton, "btn_clear")          # Clear file list button, tab 1
+        self.btn_clear = self.findChild(QtWidgets.QPushButton, "btn_clear")          # Clear file list button
         self.btn_clear.clicked.connect(self.clear)
-        self.btn_clear_2 = self.findChild(QtWidgets.QPushButton, "btn_clear_2")      # Clear file list button, tab 2
-        self.btn_clear_2.clicked.connect(self.clear)
 
         self.btn_about = self.findChild(QtWidgets.QPushButton, "btn_about")       # About Qt
         self.btn_about.clicked.connect(self.aboutQt)
@@ -50,75 +44,63 @@ class MyApp(QtWidgets.QMainWindow):
         self.btn_exit.clicked.connect(self.exit)
 
     # Search kml files in file system
-    def search_kml(self):
+    def search(self):
+        aux = list()
+
         dialog = QtWidgets.QFileDialog(self)
         dialog.setFileMode(QtWidgets.QFileDialog.AnyFile)
-        dialog.setNameFilter("File (*.kml *.kmz)")
+        
+        currentTabName = self.tabWidget.currentWidget().objectName()
+        if currentTabName == "tab":
+            dialog.setNameFilter("File (*.kml *.kmz)")
+            global kml_file_names
+            aux = kml_file_names
+        else:
+            dialog.setNameFilter("File (*.shp)")
+            global shp_file_names
+            aux = shp_file_names
+
         dialog.setViewMode(QtWidgets.QFileDialog.Detail)
 
         """
-        Select multiple files
-        """
-        select_multiple_files(dialog)
-
-        global kml_file_names
-        if dialog.exec():
-            for i in dialog.selectedFiles():
-                kml_file_names.append(i) # Add selected kml to files list to convert
-
-        self.kml_file_list.setText(list_to_string(kml_file_names)) # Show selected kml files
-
-        """
         # Select one file
-        global kml_file_names
         if dialog.exec_():
-            kml_file_names.append(dialog.selectedFiles()[0]) # Add selected kml to file list to convert
+            aux.append(dialog.selectedFiles()[0]) # Add selected kml to file list to convert
 
         self.kml_file_list.setText(list_to_string(kml_file_names)) # Show selected kml file
         """
 
-    # Search shp files in file system
-    def search_shp(self):
-        dialog = QtWidgets.QFileDialog(self)
-        dialog.setFileMode(QtWidgets.QFileDialog.AnyFile)
-        dialog.setNameFilter("File (*.shp)")
-        dialog.setViewMode(QtWidgets.QFileDialog.Detail)
-        
-        """
-        Select multiple files
-        """
+        #Select multiple files
         select_multiple_files(dialog)
-
-        global shp_file_names
         if dialog.exec():
             for i in dialog.selectedFiles():
-                shp_file_names.append(i) # Add selected shp to files list to convert
+                aux.append(i) # Add selected kml to files list to convert
 
-        self.shp_file_list.setText(list_to_string(shp_file_names)) # Show selected shp files
+        if currentTabName == "tab":
+            self.kml_file_list.setText(list_to_string(aux)) # Show selected kml files
+        else:
+            self.shp_file_list.setText(list_to_string(aux)) # Show selected shp files
 
     # Convert selected kml files
-    def kml_to_shp(self):
-        if len(kml_file_names) == 0:
-            QtWidgets.QMessageBox.critical(self, "Error", "Debe seleccionar por lo menos un archivo")
-        else:
-            for i in range(len(kml_file_names)):
-                try:
-                    kmz_converter(kml_file_names[i], i)
-                except:
-                    QtWidgets.QMessageBox.critical(self, "Error", "Ocurrió un error durante la conversión.\n" + "El archivo: " + i + "\nPosiblemente esté corrupto o dañado")
-                else:
-                    QtWidgets.QMessageBox.about(self, "Listo", "Conversión exitosa")
+    def conversion(self):
+        aux = list()
 
-    # Convert selected shp files
-    def shp_to_kml(self):
-        if len(shp_file_names) == 0:
+        currentTabName = self.tabWidget.currentWidget().objectName()
+        if currentTabName == "tab":
+            convert_function = kmz_converter
+            aux = kml_file_names
+        else:
+            convert_function = shp2kml_
+            aux = shp_file_names
+
+        if len(aux) == 0:
             QtWidgets.QMessageBox.critical(self, "Error", "Debe seleccionar por lo menos un archivo")
         else:
-            for i in range(len(shp_file_names)):
+            for i in range(len(aux)):
                 try:
-                    shp2kml_(shp_file_names[i], i)
+                    convert_function(aux[i], i)
                 except:
-                    QtWidgets.QMessageBox.critical(self, "Error", "Ocurrió un error durante la conversión.\n" + "El archivo: " + shp_file_names[i] + "\nPosiblemente esté corrupto o dañado")
+                    QtWidgets.QMessageBox.critical(self, "Error", "Ocurrió un error durante la conversión.\n" + "El archivo: " + aux[i] + "\nPosiblemente esté corrupto o dañado")
                 else:
                     QtWidgets.QMessageBox.about(self, "Listo", "Conversión exitosa")
 
