@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>660</width>
+    <width>663</width>
     <height>463</height>
    </rect>
   </property>
@@ -20,7 +20,7 @@
       <x>10</x>
       <y>0</y>
       <width>581</width>
-      <height>391</height>
+      <height>361</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -36,7 +36,7 @@
         <x>10</x>
         <y>10</y>
         <width>551</width>
-        <height>341</height>
+        <height>311</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -150,12 +150,12 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>600</x>
       <y>20</y>
-      <width>51</width>
+      <width>58</width>
       <height>146</height>
      </rect>
     </property>
@@ -213,7 +213,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -241,6 +241,32 @@
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QProgressBar" name="progressBar">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>370</y>
+      <width>481</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="value">
+     <number>24</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_status">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>370</y>
+      <width>91</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Ready</string>
+    </property>
    </widget>
   </widget>
   <action name="actionAutores">

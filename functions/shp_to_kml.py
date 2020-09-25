@@ -1,4 +1,5 @@
-import geoconvert as geoc
+#import geoconvert as geoc # using pip
+from geoconvert import *
 
 def shp2kml_(shpfile, number):
     shpFile = shpfile
@@ -6,7 +7,8 @@ def shp2kml_(shpfile, number):
     kmlFile.replace('-', '_')
 
     # Loading data
-    data = geoc.vector()
+    #data = geoc.vector() # using pip
+    data = vector()
     data.path_input = shpFile
     data.config()
 

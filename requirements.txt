@@ -1,7 +1,6 @@
 GDAL==2.3.2
 PyQt5
 PyQt5-sip
-geoconvert
 geopandas
 Shapely
 Fiona
