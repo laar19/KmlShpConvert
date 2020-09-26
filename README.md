@@ -19,7 +19,7 @@ Distribuído bajo la GNU General Public License (GPLv3).
 
 - *__main.py__* ejecuta la aplicación
 		
-- *__window.ui__* interfaz gráfica
+- *__ui/window.ui__* interfaz gráfica
 
 - *__functions/functions.py__* funciones auxiliares
 		
