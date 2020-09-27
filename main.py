@@ -1,3 +1,5 @@
+# coding: utf-8
+
 from PyQt5 import uic
 from functions.functions import *
 from functions.kmz_converter import *
@@ -8,7 +10,14 @@ authors  = ["Rosaura Rojas", "<rrojas@abae.gob.ve>", "Luis Acevedo", "<laar@prot
 credits_ = ["https://github.com/ManishSahu53", "https://github.com/tomtl"]
 license_ = "Copyright 2020. All code is copyrighted by the respective authors.\n" + appname + " can be redistributed and/or modified under the terms of the GNU GPL versions 3 or by any future license_ endorsed by " + authors[0] + " and " + authors[2] + "." + "\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
 
-window = "ui/window.ui"
+# Spcify user interface location
+if (len(sys.argv) < 2):
+    window_ = "ui/window.ui"        # Default
+elif (len(sys.argv) == 2):
+    window_ = sys.argv[1]           # Custon, in order to make and exeutable with pyinstaller
+else:
+    print("Argumento/s inválido/s") # Any other option, error
+    sys.exit()
 
 kml_file_names = list() # File list to convert from kml to shp
 shp_file_names = list() # File list to convert from shp to kml
@@ -17,7 +26,7 @@ completed = 0           # Used in progress bar
 class MyApp(QtWidgets.QMainWindow):
     def __init__(self):
         super(MyApp, self).__init__()
-        uic.loadUi(window, self)
+        uic.loadUi(window_, self)
         self.show()
 
         self.kml_file_list = self.findChild(QtWidgets.QTextBrowser, "kml_file_list") # Show file list to convert, from kml to shp, tab 1
