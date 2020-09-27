@@ -1,9 +1,9 @@
 # KmlShpConvert
 
+## Aplicación para convertir archivos con extensión .kml (Keyhole Markup Language) a .shp (Shapefile), y vice versa
+
 ## Luis Acevedo  <laar@protonmail.com>
 ## Ing. Rosaura Rojas <rrojas@abae.gob.ve>
-
-## Aplicación para convertir archivos con extensión .kml (Keyhole Markup Language) a .shp (Shapefile), y vice versa
 
 Créditos para https://github.com/ManishSahu53 y https://github.com/tomtl   
 Las funciones para convertir los archivos fueron adaptadas de sus   
