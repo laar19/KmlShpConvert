@@ -3,7 +3,6 @@
 from PyQt5 import uic
 from functions.functions import *
 from functions.kmz_converter import *
-#from functions.shp_to_kml import *
 from functions.geoconvert import *
 
 appname  = "KmlShpConvert"
