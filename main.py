@@ -14,7 +14,7 @@ license_ = "Copyright 2020. All code is copyrighted by the respective authors.\n
 if (len(sys.argv) < 2):
     window_ = "ui/window.ui"        # Default
 elif (len(sys.argv) == 2):
-    window_ = sys.argv[1]           # Custon, in order to make and exeutable with pyinstaller
+    window_ = sys.argv[1]           # Custom, in order to make an exeutable with pyinstaller
 else:
     print("Argumento/s inválido/s") # Any other option, error
     sys.exit()
