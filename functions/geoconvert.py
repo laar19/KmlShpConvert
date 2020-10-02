@@ -776,9 +776,24 @@ class raster():
         
         print('Successfully converted : %s' % (path_totif))
 
-
+"""
 def __init__():
     # enable KML support which is disabled by default
     fiona.drvsupport.supported_drivers['kml'] = 'rw'
     # enable KML support which is disabled by default
     fiona.drvsupport.supported_drivers['KML'] = 'rw'
+"""
+
+def shp2kml_(shpfile, number):
+    shpFile = shpfile
+    kmlFile = shpFile.replace('.shp', '_CONVERTIDO_'+str(number)+'.kml')
+    kmlFile.replace('-', '_')
+
+    # Loading data
+    #data = geoc.vector() # using pip
+    data = vector()
+    data.path_input = shpFile
+    data.config()
+
+    # Converting data
+    data.tokml(path_tokml=kmlFile)

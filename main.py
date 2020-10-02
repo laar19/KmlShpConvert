@@ -3,10 +3,11 @@
 from PyQt5 import uic
 from functions.functions import *
 from functions.kmz_converter import *
-from functions.shp_to_kml import *
+#from functions.shp_to_kml import *
+from functions.geoconvert import *
 
 appname  = "KmlShpConvert"
-authors  = ["Rosaura Rojas", "<rrojas@abae.gob.ve>", "Luis Acevedo", "<laar@protonmail.com>"]
+authors  = ["Luis Acevedo", "<laar@protonmail.com>", "Rosaura Rojas", "<rrojas@abae.gob.ve>"]
 credits_ = ["https://github.com/ManishSahu53", "https://github.com/tomtl"]
 license_ = "Copyright 2020. All code is copyrighted by the respective authors.\n" + appname + " can be redistributed and/or modified under the terms of the GNU GPL versions 3 or by any future license_ endorsed by " + authors[0] + " and " + authors[2] + "." + "\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
 
@@ -164,7 +165,7 @@ class MyApp(QtWidgets.QMainWindow):
 
 if __name__ == "__main__":
     
-    print(appname + " Copyright (C) 2020 " + authors[0] + ", " + authors[2] + ".\nEste programa viene con ABSOLUTAMENTE NINGUNA GARANTÍA.\nEsto es software libre, y le invitamos a redistribuirlo\nbajo ciertas condiciones.\nPor favor, leer el archivo README.")
+    print("\n" + appname + " Copyright (C) 2020 " + authors[0] + ", " + authors[2] + ".\nEste programa viene con ABSOLUTAMENTE NINGUNA GARANTÍA.\nEsto es software libre, y le invitamos a redistribuirlo\nbajo ciertas condiciones.\nPor favor, leer el archivo README.")
 
     app = QtWidgets.QApplication(sys.argv)
     window = MyApp()

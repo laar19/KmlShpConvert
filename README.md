@@ -27,8 +27,6 @@ Distribuído bajo la GNU General Public License (GPLv3).
 
 - *__functions/geoconvert.py__* contiene las funciones para convertir de shapefile a kml https://github.com/ManishSahu53/geoconvert
 		
-- *__functions/shp2kml.py__* convierte de shapefile a kml https://github.com/ManishSahu53/geoconvert
-
 ## Uso:
 ### Anaconda (recomendado)
 1.- Clonar o descargar este repositorio   
