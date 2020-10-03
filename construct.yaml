@@ -12,12 +12,13 @@ channels:
   - https://conda.anaconda.org/conda-forge
 
 specs:
-  - python 3.5
+  - python 3.7
 
-installer_type: sh
-#installer_type: exe
+#installer_type: sh
+installer_type: exe
 
-installer_filename: KmlShpConvert_installer.sh
+#installer_filename: KmlShpConvert_installer.sh
+installer_filename: KmlShpConvert_installer.exe
 
 license_file: LICENSE
 

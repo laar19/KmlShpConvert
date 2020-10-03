@@ -2,9 +2,6 @@
 
 import sys
 
-import platform
-operative_system = platform.system() # Identify operative system
-
 from PyQt5 import uic
 from functions.functions import *
 
