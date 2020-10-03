@@ -123,7 +123,7 @@ class MyApp(QtWidgets.QMainWindow):
             self.label_status.setText("Convirtiendo...")
             button_reply = QtWidgets.QMessageBox.question(self, "Confirmar", "Proceder")
             if button_reply == QtWidgets.QMessageBox.Yes:
-                self.progress.setValue(1)
+                self.progress.setValue(5)
                 for i in range(len(aux)):
                     try:
                         #aux2 = '"' + aux[i] + '"' # Fix folder location with namespaces
