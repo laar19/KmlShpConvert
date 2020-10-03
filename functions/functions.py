@@ -1,4 +1,5 @@
 import os
+from functions import ogr2ogr
 
 from PyQt5 import QtWidgets
 
@@ -26,11 +27,13 @@ def shp2kml_(shpfile, number):
     kmlFile = shpFile.replace('.shp', '_CONVERTIDO_'+str(number)+'.kml')
     kmlFile.replace('-', '_')
     
-    os.system('ogr2ogr -f "KML" ' + kmlFile + ' ' + shpFile)
+    #os.system('ogr2ogr -f "KML" ' + kmlFile + ' ' + shpFile)
+    ogr2ogr.main(["", "-f", "KML", kmlFile, shpFile])
 
 def kml2shp_(kmlfile, number):
     kmlFile = kmlfile
     shpFile = kmlFile.replace('.kml', '_CONVERTIDO_'+str(number)+'.shp')
     shpFile.replace('-', '_')
     
-    os.system('ogr2ogr -f "ESRI Shapefile" ' + shpFile + ' ' + kmlFile)
+    #os.system('ogr2ogr -f "ESRI Shapefile" ' + shpFile + ' ' + kmlFile)
+    ogr2ogr.main(["", "-f", "ESRI Shapefile", shpFile, kmlFile])

@@ -126,7 +126,8 @@ class MyApp(QtWidgets.QMainWindow):
                 self.progress.setValue(1)
                 for i in range(len(aux)):
                     try:
-                        aux2 = '"' + aux[i] + '"' # Fix folder location with namespaces
+                        #aux2 = '"' + aux[i] + '"' # Fix folder location with namespaces
+                        aux2 = aux[i]
                         convert_function(aux2, i)
                         completed = self.update_progress_bar(len(aux), completed)
                     except:
