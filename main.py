@@ -127,7 +127,6 @@ class MyApp(QtWidgets.QMainWindow):
                 for i in range(len(aux)):
                     try:
                         # Fix folder location with namespaces, only in kml2shp_ (for windows os)
-                        #if operative_system == "Windows" and currentTabName == "tab_kml2shp":
                         if operative_system == "Windows":
                             aux = '"' + aux[i] + '"'
                         else:
