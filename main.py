@@ -1,9 +1,12 @@
 # coding: utf-8
 
+import sys
+
+import platform
+operative_system = platform.system() # Identify operative system
+
 from PyQt5 import uic
 from functions.functions import *
-from functions.kmz_converter import *
-from functions.geoconvert import *
 
 appname  = "KmlShpConvert"
 authors  = ["Luis Acevedo", "<laar@protonmail.com>", "Rosaura Rojas", "<rrojas@abae.gob.ve>"]
@@ -66,7 +69,7 @@ class MyApp(QtWidgets.QMainWindow):
         dialog.setFileMode(QtWidgets.QFileDialog.AnyFile)
         
         currentTabName = self.tabWidget.currentWidget().objectName()
-        if currentTabName == "tab":
+        if currentTabName == "tab_kml2shp":
             dialog.setNameFilter("File (*.kml *.kmz)")
             global kml_file_names
             aux = kml_file_names
@@ -91,7 +94,7 @@ class MyApp(QtWidgets.QMainWindow):
             for i in dialog.selectedFiles():
                 aux.append(i) # Add selected kml to files list to convert
 
-        if currentTabName == "tab":
+        if currentTabName == "tab_kml2shp":
             self.kml_file_list.setText(list_to_string(aux)) # Show selected kml files
         else:
             self.shp_file_list.setText(list_to_string(aux)) # Show selected shp files
@@ -105,8 +108,8 @@ class MyApp(QtWidgets.QMainWindow):
         completed = 0
 
         currentTabName = self.tabWidget.currentWidget().objectName()
-        if currentTabName == "tab":
-            convert_function = kmz_converter
+        if currentTabName == "tab_kml2shp":
+            convert_function = kml2shp_
             global kml_file_names
             aux = kml_file_names
         else:
@@ -123,10 +126,16 @@ class MyApp(QtWidgets.QMainWindow):
                 self.progress.setValue(1)
                 for i in range(len(aux)):
                     try:
-                        convert_function(aux[i], i)
+                        # Fix folder location with namespaces, only in kml2shp_ (for windows os)
+                        #if operative_system == "Windows" and currentTabName == "tab_kml2shp":
+                        if operative_system == "Windows":
+                            aux = '"' + aux[i] + '"'
+                        else:
+                            aux = aux[i]
+                        convert_function(aux, i)
                         completed = self.update_progress_bar(len(aux), completed)
                     except:
-                        QtWidgets.QMessageBox.critical(self, "Error", "Ocurrió un error durante la conversión.\n" + "El archivo: " + aux[i] + "\nPosiblemente esté corrupto o dañado")
+                        QtWidgets.QMessageBox.critical(self, "Error", "Ocurrió un error durante la conversión.\n" + "El archivo: " + aux + "\nPosiblemente esté corrupto o dañado")
                 self.label_status.setText("Ready")
                 QtWidgets.QMessageBox.about(self, "Listo", "Conversión exitosa")
             else:

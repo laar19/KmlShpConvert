@@ -1,6 +1,4 @@
 import os
-import platform
-operative_system = platform.system() # Identify operative system
 
 from PyQt5 import QtWidgets
 
@@ -12,18 +10,6 @@ def list_to_string(list_):
         string += str(i+1) + " - " + list_[i] + "\n\n"
     return string
 
-# Specify out location on file system
-def out_location():
-    location = str()
-    
-    if operative_system == "Windows":
-        location = os.path.join(os.path.join(os.environ["USERPROFILE"]), "Desktop")
-        #location = os.path.join(os.path.join(os.environ["HOMEPATH"]), "Desktop")
-    else:
-        location = os.path.join(os.path.join(os.path.expanduser("~")))
-
-    return location
-
 # Select multiple files
 def select_multiple_files(dialog):
     file_view = dialog.findChild(QtWidgets.QListView, "ListView")
@@ -34,3 +20,17 @@ def select_multiple_files(dialog):
         f_tree_view.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
 
     return f_tree_view
+    
+def shp2kml_(shpfile, number):
+    shpFile = shpfile
+    kmlFile = shpFile.replace('.shp', '_CONVERTIDO_'+str(number)+'.kml')
+    kmlFile.replace('-', '_')
+    
+    os.system('ogr2ogr -f "KML" ' + kmlFile + ' ' + shpFile)
+
+def kml2shp_(kmlfile, number):
+    kmlFile = kmlfile
+    shpFile = kmlFile.replace('.kml', '_CONVERTIDO_'+str(number)+'.shp')
+    shpFile.replace('-', '_')
+    
+    os.system('ogr2ogr -f "ESRI Shapefile" ' + shpFile + ' ' + kmlFile)

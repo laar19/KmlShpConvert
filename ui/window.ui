@@ -26,7 +26,7 @@
     <property name="currentIndex">
      <number>0</number>
     </property>
-    <widget class="QWidget" name="tab">
+    <widget class="QWidget" name="tab_kml2shp">
      <attribute name="title">
       <string>KML to SHP</string>
      </attribute>
@@ -61,7 +61,7 @@
       </layout>
      </widget>
     </widget>
-    <widget class="QWidget" name="tab_2">
+    <widget class="QWidget" name="tab_shp2kml">
      <attribute name="title">
       <string>SHP to KML</string>
      </attribute>
