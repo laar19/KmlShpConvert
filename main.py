@@ -126,11 +126,7 @@ class MyApp(QtWidgets.QMainWindow):
                 self.progress.setValue(1)
                 for i in range(len(aux)):
                     try:
-                        # Fix folder location with namespaces, only in kml2shp_ (for windows os)
-                        if operative_system == "Windows":
-                            aux = '"' + aux[i] + '"'
-                        else:
-                            aux = aux[i]
+                        aux = '"' + aux[i] + '"' # Fix folder location with namespaces
                         convert_function(aux, i)
                         completed = self.update_progress_bar(len(aux), completed)
                     except:
