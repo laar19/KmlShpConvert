@@ -126,11 +126,11 @@ class MyApp(QtWidgets.QMainWindow):
                 self.progress.setValue(1)
                 for i in range(len(aux)):
                     try:
-                        aux = '"' + aux[i] + '"' # Fix folder location with namespaces
-                        convert_function(aux, i)
+                        aux2 = '"' + aux[i] + '"' # Fix folder location with namespaces
+                        convert_function(aux2, i)
                         completed = self.update_progress_bar(len(aux), completed)
                     except:
-                        QtWidgets.QMessageBox.critical(self, "Error", "Ocurrió un error durante la conversión.\n" + "El archivo: " + aux + "\nPosiblemente esté corrupto o dañado")
+                        QtWidgets.QMessageBox.critical(self, "Error", "Ocurrió un error durante la conversión.\n" + "El archivo: " + aux2 + "\nPosiblemente esté corrupto o dañado")
                 self.label_status.setText("Ready")
                 QtWidgets.QMessageBox.about(self, "Listo", "Conversión exitosa")
             else:
