@@ -1,7 +1,6 @@
 # coding: utf-8
 
 import sys
-
 from PyQt5 import uic
 from functions.functions import *
 

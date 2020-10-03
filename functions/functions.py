@@ -1,6 +1,4 @@
-import os
 from functions import ogr2ogr
-
 from PyQt5 import QtWidgets
 
 # Convert selected file list_ to string
@@ -21,7 +19,7 @@ def select_multiple_files(dialog):
         f_tree_view.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
 
     return f_tree_view
-    
+
 def shp2kml_(shpfile, number):
     shpFile = shpfile
     kmlFile = shpFile.replace('.shp', '_CONVERTIDO_'+str(number)+'.kml')
