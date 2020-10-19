@@ -8,7 +8,7 @@
 ## Technical information:
 
 Developed in python 3.7.x   
-PyQt5 as a graphic library.   
+PyQt5 as graphic library.   
 Distributed under the GNU General Public License (GPLv3).   
 
 ## Doc:
