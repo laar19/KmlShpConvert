@@ -20,7 +20,7 @@ Distributed under the GNU General Public License (GPLv3).
 ## Usage:
 ### Anaconda (recommended)
 1.- Clone or download this repository   
-2.- Creating a new virtual environment: __conda env create -n nombre_entorno -f environment.yml__   
+2.- Creating a new virtual environment: __conda env create -n env_name -f environment.yml__   
 3.- Activate the environment   
 4.- Launch the application: __python main.py__   
 
