@@ -1,5 +1,5 @@
 from functions import ogr2ogr
-from PyQt5 import QtWidgets
+from PySide2 import QtWidgets
 
 # Convert selected file list_ to string
 # in order to shown in the window
