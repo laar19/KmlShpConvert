@@ -1,5 +1,6 @@
 from functions import ogr2ogr
 from PySide2 import QtWidgets
+from datetime import datetime
 
 # Convert selected file list_ to string
 # in order to shown in the window
@@ -22,7 +23,7 @@ def select_multiple_files(dialog):
 
 def shp2kml_(shpfile, number):
     shpFile = shpfile
-    kmlFile = shpFile.replace('.shp', '_CONVERTIDO_'+str(number)+'.kml')
+    kmlFile = shpFile.replace('.shp', '_CONVERTIDO_'+str(datetime.now())+'_'+str(number)+'.kml')
     kmlFile.replace('-', '_')
     
     #os.system('ogr2ogr -f "KML" ' + kmlFile + ' ' + shpFile)
@@ -30,7 +31,7 @@ def shp2kml_(shpfile, number):
 
 def kml2shp_(kmlfile, number):
     kmlFile = kmlfile
-    shpFile = kmlFile.replace('.kml', '_CONVERTIDO_'+str(number)+'.shp')
+    shpFile = kmlFile.replace('.kml', '_CONVERTIDO_'+str(datetime.now())+'_'+str(number)+'.shp')
     shpFile.replace('-', '_')
     
     #os.system('ogr2ogr -f "ESRI Shapefile" ' + shpFile + ' ' + kmlFile)

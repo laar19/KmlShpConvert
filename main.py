@@ -52,9 +52,11 @@ class MyApp(QDialog):
 
         self.label_status = self.window.findChild(QtWidgets.QLabel, "label_status")
 
-        self.label_gdal = self.window.findChild(QtWidgets.QLabel, "label_4")
+        self.label_gdal1 = self.window.findChild(QtWidgets.QLabel, "label_4")
+
+        self.label_gdal2 = self.window.findChild(QtWidgets.QLabel, "label_6")
         pixmap = QPixmap("ui/img/gdalicon.png")
-        self.label_gdal.setPixmap(pixmap)
+        self.label_gdal2.setPixmap(pixmap)
         
         
         self.btn_search = self.window.findChild(QtWidgets.QPushButton, "btn_search")        # Search files button
