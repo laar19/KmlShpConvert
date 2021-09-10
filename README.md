@@ -7,8 +7,12 @@
 ## Technical information:
 
 Developed in python 3.7.x   
-PyQt5 as graphic library.   
+PySide2 as graphic library.   
 Distributed under the GNU General Public License (GPLv3).   
+
+
+## Binaries
+https://sourceforge.net/projects/kmlshpconvert/
 
 ## Doc:
 
@@ -29,6 +33,3 @@ Distributed under the GNU General Public License (GPLv3).
 3.- Activate the environment   
 4.- Install requested libraries: __pip install -r requeriments.txt__   
 5.- Launch the application: __python main.py__   
-
-## Binaries
-https://sourceforge.net/projects/kmlshpconvert/
