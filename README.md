@@ -3,7 +3,6 @@
 ## Application to convert files with extension .kml (Keyhole Markup Language) to .shp (Shapefile), and vice versa
 
 ## Luis Acevedo  <laar@protonmail.com>
-## Ing. Rosaura Rojas <rrojas@abae.gob.ve>
 
 ## Technical information:
 
