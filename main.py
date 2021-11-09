@@ -14,9 +14,10 @@ from qdarkstyle.light.palette import LightPalette
 from functions.functions import *
 
 appname  = "KmlShpConvert"
-authors  = ["Luis Acevedo", "<laar@protonmail.com>", "Rosaura Rojas", "<rrojas@abae.gob.ve>"]
+version  = "3.0"
+authors  = ["Luis Acevedo", "<laar@pm.me>"]
 credits_ = ["https://github.com/ManishSahu53", "https://github.com/tomtl"]
-license_ = "Copyright 2020. All code is copyrighted by the respective authors.\n" + appname + " can be redistributed and/or modified under the terms of the GNU GPL versions 3 or by any future license_ endorsed by " + authors[0] + " and " + authors[2] + "." + "\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
+license_ = "Copyright 2020. All code is copyrighted by the respective authors.\n" + appname + " can be redistributed and/or modified under the terms of the GNU GPL versions 3 or by any future license_ endorsed by " + authors[0] + "." + "\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
 
 # Spcify user interface location
 if (len(sys.argv) < 2):
@@ -74,16 +75,19 @@ class MyApp(QDialog):
         self.btn_clear.setIcon(pixmap)
         self.btn_clear.clicked.connect(self.clear)
 
-        self.btn_about = self.window.findChild(QtWidgets.QPushButton, "btn_about")       # About Qt
-        self.btn_about.clicked.connect(self.aboutQt)
+        self.version = self.window.findChild(QtWidgets.QAction, "version")   # Version
+        self.version.triggered.connect(self.version_)
+        
+        self.about_qt = self.window.findChild(QtWidgets.QAction, "about_qt") # About Qt
+        self.about_qt.triggered.connect(self.aboutQt)
+        
+        self.authors = self.window.findChild(QtWidgets.QAction, "authors")   # Authors
+        self.authors.triggered.connect(self.authors_)
+        
+        self.license = self.window.findChild(QtWidgets.QAction, "license")   # License
+        self.license.triggered.connect(self.license_)
 
-        self.btn_authors = self.window.findChild(QtWidgets.QPushButton, "btn_authors")   # Authors
-        self.btn_authors.clicked.connect(self.authors)
-
-        self.btn_license = self.window.findChild(QtWidgets.QPushButton, "btn_license")   # License
-        self.btn_license.clicked.connect(self.license_)
-
-        self.btn_change_theme = self.window.findChild(QtWidgets.QPushButton, "btn_change_theme") # License
+        self.btn_change_theme = self.window.findChild(QtWidgets.QPushButton, "btn_change_theme") # Change theme
         self.btn_change_theme.setStyleSheet("background-color: purple")
         self.btn_change_theme.setCheckable(True)
         #self.btn_change_theme.setChecked(True)
@@ -184,13 +188,16 @@ class MyApp(QDialog):
             self.progress.setValue(completed)
         
         return completed
+    
+    def version_(self):
+        QtWidgets.QMessageBox.about(self.window, "Version", version)
 
     def aboutQt(self):
         QtWidgets.QMessageBox.aboutQt(self.window)
-    
-    def authors(self):
-        mensaje = "Autores:\n" + authors[0] + " " + authors[1] + "\n" + authors[2] + "  " + authors[3] + "\n\n\n" + "Cŕeditos:\n" + credits_[0] + "\n" + credits_[1]
-        QtWidgets.QMessageBox.about(self.window, "Autores", mensaje)
+        
+    def authors_(self):
+        text = "Autores:\n" + authors[0] + " " + authors[1] + "\n\n\n" + "Cŕeditos:\n" + credits_[0] + "\n" + credits_[1]
+        QtWidgets.QMessageBox.about(self.window, "Autores", text)
         
     def license_(self):
         QtWidgets.QMessageBox.about(self.window, "Licencia", license_)
@@ -206,7 +213,7 @@ class MyApp(QDialog):
 
 if __name__ == "__main__":
     
-    print("\n" + appname + " Copyright (C) 2020 " + authors[0] + ", " + authors[2] + ".\nEste programa viene con ABSOLUTAMENTE NINGUNA GARANTÍA.\nEsto es software libre, y le invitamos a redistribuirlo\nbajo ciertas condiciones.\nPor favor, leer el archivo README.")
+    print("\n" + appname + " Copyright (C) 2020 " + authors[0] + ".\nEste programa viene con ABSOLUTAMENTE NINGUNA GARANTÍA.\nEsto es software libre, y le invitamos a redistribuirlo\nbajo ciertas condiciones.\nPor favor, leer el archivo README.")
 
     app = QApplication(sys.argv)
     app.setStyleSheet(qdarkstyle.load_stylesheet(qt_api='pyside2', palette=DarkPalette))

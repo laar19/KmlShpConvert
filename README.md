@@ -2,25 +2,25 @@
 
 ## Application to convert files with extension .kml (Keyhole Markup Language) to .shp (Shapefile), and vice versa
 
-## Luis Acevedo  <laar@protonmail.com>
+## Luis Acevedo  <laar@pm.me>
 
 ## Technical information:
 
-Developed in python 3.7.x   
+Developed in python 3.8.x   
 PySide2 as graphic library.   
 Distributed under the GNU General Public License (GPLv3).   
 
 
-## Binaries
+## Binaries and installers
 https://sourceforge.net/projects/kmlshpconvert/
-
+	
 ## Doc:
 
 - *__main.py__* Launch the application
 		
 - *__ui/window.ui__* Graphic interface
 		
-## Usage:
+## Edit and testing:
 ### Anaconda (recommended)
 1.- Clone or download this repository   
 2.- Creating a new virtual environment: __conda env create -n env_name -f environment.yml__   
