@@ -1,17 +1,17 @@
 # coding: utf-8
 
 import sys
+import qdarkstyle
 
 from PySide2.QtWidgets import QApplication, QDialog
-from PySide2.QtCore import QFile
+from PySide2.QtCore    import QFile
 from PySide2.QtUiTools import QUiLoader
-from PySide2.QtGui import QPixmap
+from PySide2.QtGui     import QPixmap
 
-import qdarkstyle
-from qdarkstyle.dark.palette import DarkPalette
+from qdarkstyle.dark.palette  import DarkPalette
 from qdarkstyle.light.palette import LightPalette
 
-from functions.functions import *
+from library.functions import *
 
 appname  = "KmlShpConvert"
 version  = "3.0"
@@ -136,41 +136,53 @@ class MyApp(QDialog):
 
     # Convert selected kml files
     def conversion(self):
-        aux = list()
+        tmp = QtWidgets.QFileDialog.getSaveFileName(self.window, ("Save F:xile"), "CONVERTS",)
+        tmp = tmp[0].split("/")
 
-        global completed
-        completed = completed
-        completed = 0
+        if len(tmp) > 1:
+            save_path = ""
+            for i in tmp[1:-1]:
+                save_path += i + "/"
+            save_path = "/" + save_path
+            
+            aux = list()
 
-        currentTabName = self.tab.currentWidget().objectName()
-        if currentTabName == "tab_kml2shp":
-            convert_function = kml2shp_
-            global kml_file_names
-            aux = kml_file_names
-        else:
-            convert_function = shp2kml_
-            global shp_file_names
-            aux = shp_file_names
+            global completed
+            completed = completed
+            completed = 0
 
-        if len(aux) == 0:
-            QtWidgets.QMessageBox.critical(self.window, "Error", "Debe seleccionar por lo menos un archivo")
-        else:
-            self.label_status.setText("Convirtiendo...")
-            button_reply = QtWidgets.QMessageBox.question(self.window, "Confirmar", "Proceder")
-            if button_reply == QtWidgets.QMessageBox.Yes:
-                self.progress.setValue(5)
-                for i in range(len(aux)):
-                    try:
-                        #aux2 = '"' + aux[i] + '"' # Fix folder location with namespaces
-                        aux2 = aux[i]
-                        convert_function(aux2, i)
-                        completed = self.update_progress_bar(len(aux), completed)
-                    except:
-                        QtWidgets.QMessageBox.critical(self.window, "Error", "Ocurrió un error durante la conversión.\n" + "El archivo: " + aux2 + "\nPosiblemente esté corrupto o dañado")
-                self.label_status.setText("Ready")
-                QtWidgets.QMessageBox.about(self.window, "Listo", "Conversión exitosa")
+            currentTabName = self.tab.currentWidget().objectName()
+            if currentTabName == "tab_kml2shp":
+                convert_function = kml2shp_
+                global kml_file_names
+                aux = kml_file_names
             else:
-                self.label_status.setText("Ready")
+                convert_function = shp2kml_
+                global shp_file_names
+                aux = shp_file_names
+
+            if len(aux) == 0:
+                QtWidgets.QMessageBox.critical(self.window, "Error", "Debe seleccionar por lo menos un archivo")
+            else:
+                tmp = aux[0].split("/")
+                output_name = save_path + tmp[-1]
+                
+                self.label_status.setText("Convirtiendo...")
+                button_reply = QtWidgets.QMessageBox.question(self.window, "Confirmar", "Proceder")
+                if button_reply == QtWidgets.QMessageBox.Yes:
+                    self.progress.setValue(5)
+                    for i in range(len(aux)):
+                        try:
+                            #aux2 = '"' + aux[i] + '"' # Fix folder location with namespaces
+                            aux2 = aux[i]
+                            convert_function(aux2, output_name, i)
+                            completed = self.update_progress_bar(len(aux), completed)
+                        except:
+                            QtWidgets.QMessageBox.critical(self.window, "Error", "Ocurrió un error durante la conversión.\n" + "El archivo: " + aux2 + "\nPosiblemente esté corrupto o dañado")
+                    self.label_status.setText("Ready")
+                    QtWidgets.QMessageBox.about(self.window, "Listo", "Conversión exitosa")
+                else:
+                    self.label_status.setText("Ready")
 
     # Clear selected file list
     def clear(self):
