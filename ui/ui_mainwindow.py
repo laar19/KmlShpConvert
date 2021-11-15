@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'window.ui'
+# Form implementation generated from reading ui file 'mainwindow.ui',
+# licensing of 'mainwindow.ui' applies.
 #
-# Created by: PyQt5 UI code generator 5.9.2
+# Created: Mon Nov 15 14:39:22 2021
+#      by: pyside2-uic  running on PySide2 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -85,11 +87,11 @@ class Ui_MainWindow(object):
         self.label_status = QtWidgets.QLabel(self.centralwidget)
         self.label_status.setGeometry(QtCore.QRect(10, 370, 91, 21))
         self.label_status.setObjectName("label_status")
-        self.label_6 = QtWidgets.QLabel(self.centralwidget)
-        self.label_6.setGeometry(QtCore.QRect(108, 432, 41, 41))
-        self.label_6.setText("")
-        self.label_6.setPixmap(QtGui.QPixmap("img/abaeicon.jpg"))
-        self.label_6.setObjectName("label_6")
+        self.label_gdal2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_gdal2.setGeometry(QtCore.QRect(108, 432, 41, 41))
+        self.label_gdal2.setText("")
+        self.label_gdal2.setPixmap(QtGui.QPixmap("img/abaeicon.jpg"))
+        self.label_gdal2.setObjectName("label_gdal2")
         self.layoutWidget1 = QtWidgets.QWidget(self.centralwidget)
         self.layoutWidget1.setGeometry(QtCore.QRect(170, 430, 481, 30))
         self.layoutWidget1.setObjectName("layoutWidget1")
@@ -154,27 +156,27 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "KmlShpConvert"))
-        self.label_5.setText(_translate("MainWindow", "Archivo(s) KML:"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_kml2shp), _translate("MainWindow", "KML to SHP"))
-        self.label_2.setText(_translate("MainWindow", "Archivo(s) SHP:"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_shp2kml), _translate("MainWindow", "SHP to KML"))
-        self.btn_search.setText(_translate("MainWindow", "Buscar"))
-        self.btn_clear.setText(_translate("MainWindow", "Limpiar"))
-        self.btn_accept.setText(_translate("MainWindow", "Aceptar"))
-        self.label_status.setText(_translate("MainWindow", "Ready"))
-        self.btn_exit.setText(_translate("MainWindow", "Salir"))
-        self.btn_change_theme.setText(_translate("MainWindow", "Cambiar Tema"))
-        self.label_3.setText(_translate("MainWindow", "Powered by"))
-        self.label_7.setText(_translate("MainWindow", "GDAL"))
-        self.menuHelp.setTitle(_translate("MainWindow", "Help"))
-        self.actionAutores.setText(_translate("MainWindow", "Autores"))
-        self.actionClasificar.setText(_translate("MainWindow", "Clasificar"))
-        self.actionBuscar.setText(_translate("MainWindow", "Buscar"))
-        self.actionLicencia.setText(_translate("MainWindow", "Licencia"))
-        self.actionAcerca_de_Qt.setText(_translate("MainWindow", "Acerca de Qt"))
-        self.about_qt.setText(_translate("MainWindow", "Acerca de Qt"))
-        self.authors.setText(_translate("MainWindow", "Autores"))
-        self.license.setText(_translate("MainWindow", "Licencia"))
-        self.version.setText(_translate("MainWindow", "Version"))
+        MainWindow.setWindowTitle(QtWidgets.QApplication.translate("MainWindow", "KmlShpConvert", None, -1))
+        self.label_5.setText(QtWidgets.QApplication.translate("MainWindow", "Archivo(s) KML:", None, -1))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_kml2shp), QtWidgets.QApplication.translate("MainWindow", "KML to SHP", None, -1))
+        self.label_2.setText(QtWidgets.QApplication.translate("MainWindow", "Archivo(s) SHP:", None, -1))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_shp2kml), QtWidgets.QApplication.translate("MainWindow", "SHP to KML", None, -1))
+        self.btn_search.setText(QtWidgets.QApplication.translate("MainWindow", "Buscar", None, -1))
+        self.btn_clear.setText(QtWidgets.QApplication.translate("MainWindow", "Limpiar", None, -1))
+        self.btn_accept.setText(QtWidgets.QApplication.translate("MainWindow", "Aceptar", None, -1))
+        self.label_status.setText(QtWidgets.QApplication.translate("MainWindow", "Ready", None, -1))
+        self.btn_exit.setText(QtWidgets.QApplication.translate("MainWindow", "Salir", None, -1))
+        self.btn_change_theme.setText(QtWidgets.QApplication.translate("MainWindow", "Cambiar Tema", None, -1))
+        self.label_3.setText(QtWidgets.QApplication.translate("MainWindow", "Powered by", None, -1))
+        self.label_7.setText(QtWidgets.QApplication.translate("MainWindow", "GDAL", None, -1))
+        self.menuHelp.setTitle(QtWidgets.QApplication.translate("MainWindow", "Help", None, -1))
+        self.actionAutores.setText(QtWidgets.QApplication.translate("MainWindow", "Autores", None, -1))
+        self.actionClasificar.setText(QtWidgets.QApplication.translate("MainWindow", "Clasificar", None, -1))
+        self.actionBuscar.setText(QtWidgets.QApplication.translate("MainWindow", "Buscar", None, -1))
+        self.actionLicencia.setText(QtWidgets.QApplication.translate("MainWindow", "Licencia", None, -1))
+        self.actionAcerca_de_Qt.setText(QtWidgets.QApplication.translate("MainWindow", "Acerca de Qt", None, -1))
+        self.about_qt.setText(QtWidgets.QApplication.translate("MainWindow", "Acerca de Qt", None, -1))
+        self.authors.setText(QtWidgets.QApplication.translate("MainWindow", "Autores", None, -1))
+        self.license.setText(QtWidgets.QApplication.translate("MainWindow", "Licencia", None, -1))
+        self.version.setText(QtWidgets.QApplication.translate("MainWindow", "Version", None, -1))
+
