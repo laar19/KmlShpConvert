@@ -18,7 +18,7 @@ appname  = "KmlShpConvert"
 version  = "3.0"
 authors  = ["Luis Acevedo", "<laar@pm.me>"]
 credits_ = ["https://github.com/ManishSahu53", "https://github.com/tomtl"]
-license_ = "Copyright 2020. All code is copyrighted by the respective authors.\n" + appname + " can be redistributed and/or modified under the terms of the GNU GPL versions 3 or by any future license_ endorsed by " + authors[0] + "." + "\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
+license_ = "Copyright 2020. All code is copyrighted by the respective authors.\n" + appname + " can be redistributed and/or modified under the terms of the GNU GPL versions 3 or by any future license endorsed by " + authors[0] + "." + "\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
 
 kml_file_names = list() # File list to convert from kml to shp
 shp_file_names = list() # File list to convert from shp to kml
