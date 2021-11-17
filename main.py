@@ -45,16 +45,28 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # Search files button
         pixmap = QPixmap("ui/resources/icons/Start-Menu-Search-icon.png")
         self.btn_search.setIcon(pixmap)
+        self.btn_search.setStyleSheet(
+            "QPushButton {background-color: #2FD0C6;}"
+            "QPushButton::hover { background-color: black;}"
+        )
         self.btn_search.clicked.connect(self.search)
 
         # Convert from kml to shp button
         pixmap = QPixmap("ui/resources/icons/Accept-icon.png")
         self.btn_accept.setIcon(pixmap)
+        self.btn_accept.setStyleSheet(
+            "QPushButton {background-color: green;}"
+            "QPushButton::hover { background-color: black;}"
+        )
         self.btn_accept.clicked.connect(self.conversion)
 
         # Clear file list button
         pixmap = QPixmap("ui/resources/icons/Actions-edit-clear-locationbar-rtl-icon.png")
         self.btn_clear.setIcon(pixmap)
+        self.btn_clear.setStyleSheet(
+            "QPushButton {background-color: grey;}"
+            "QPushButton::hover { background-color: black;}"
+        )
         self.btn_clear.clicked.connect(self.clear)
 
         # Version
@@ -70,7 +82,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.license.triggered.connect(self.license_)
 
         # Change theme
-        self.btn_change_theme.setStyleSheet("background-color: purple")
+        self.btn_change_theme.setStyleSheet(
+            "QPushButton {background-color: purple;}"
+            "QPushButton::hover { background-color: black;}"
+        )
         self.btn_change_theme.setCheckable(True)
         #self.btn_change_theme.setChecked(True)
         self.btn_change_theme.clicked.connect(self.toggle_theme)
