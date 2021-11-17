@@ -19,6 +19,7 @@ version  = "3.0"
 authors  = ["Luis Acevedo", "<laar@pm.me>"]
 credits_ = ["https://github.com/ManishSahu53", "https://github.com/tomtl"]
 license_ = "Copyright 2020. All code is copyrighted by the respective authors.\n" + appname + " can be redistributed and/or modified under the terms of the GNU GPL versions 3 or by any future license endorsed by " + authors[0] + "." + "\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
+third_party = "App logo - Icons by Orion Icon Library - https://orioniconlibrary.com"
 
 kml_file_names = list() # File list to convert from kml to shp
 shp_file_names = list() # File list to convert from shp to kml
@@ -86,6 +87,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         
         # License
         self.license.triggered.connect(self.license_)
+
+        # Third party
+        self.third_party.triggered.connect(self.third_party_)
 
         # Change theme
         self.btn_change_theme.setStyleSheet(
@@ -217,6 +221,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         
     def license_(self):
         QtWidgets.QMessageBox.about(self, "Licencia", license_)
+
+    def third_party_(self):
+        QtWidgets.QMessageBox.about(self, "Third party", third_party)
 
     def toggle_theme(self):
         if not self.btn_change_theme.isChecked():

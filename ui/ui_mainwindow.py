@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'mainwindow.ui',
 # licensing of 'mainwindow.ui' applies.
 #
-# Created: Wed Nov 17 13:02:39 2021
+# Created: Wed Nov 17 13:55:02 2021
 #      by: pyside2-uic  running on PySide2 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -139,10 +139,13 @@ class Ui_MainWindow(object):
         self.license.setObjectName("license")
         self.version = QtWidgets.QAction(MainWindow)
         self.version.setObjectName("version")
+        self.third_party = QtWidgets.QAction(MainWindow)
+        self.third_party.setObjectName("third_party")
         self.menuHelp.addAction(self.version)
         self.menuHelp.addAction(self.about_qt)
         self.menuHelp.addAction(self.authors)
         self.menuHelp.addAction(self.license)
+        self.menuHelp.addAction(self.third_party)
         self.menuBar.addAction(self.menuHelp.menuAction())
 
         self.retranslateUi(MainWindow)
@@ -173,4 +176,5 @@ class Ui_MainWindow(object):
         self.authors.setText(QtWidgets.QApplication.translate("MainWindow", "Autores", None, -1))
         self.license.setText(QtWidgets.QApplication.translate("MainWindow", "Licencia", None, -1))
         self.version.setText(QtWidgets.QApplication.translate("MainWindow", "Version", None, -1))
+        self.third_party.setText(QtWidgets.QApplication.translate("MainWindow", "Third party", None, -1))
 

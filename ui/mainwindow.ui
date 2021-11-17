@@ -286,6 +286,7 @@
     <addaction name="about_qt"/>
     <addaction name="authors"/>
     <addaction name="license"/>
+    <addaction name="third_party"/>
    </widget>
    <addaction name="menuHelp"/>
   </widget>
@@ -332,6 +333,11 @@
   <action name="version">
    <property name="text">
     <string>Version</string>
+   </property>
+  </action>
+  <action name="third_party">
+   <property name="text">
+    <string>Third party</string>
    </property>
   </action>
  </widget>
