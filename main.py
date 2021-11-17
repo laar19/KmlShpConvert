@@ -15,10 +15,21 @@ from library.functions import *
 from ui.ui_mainwindow  import Ui_MainWindow
 
 appname  = "KmlShpConvert"
-about    = "KmlShpConvert versión 3.0\nEste programa convierte archivos con formato KML a SHAPEFILE y vice versa"
+
+about    = appname + " versión 3.0\n\nEste programa convierte archivos con \
+\nformato KML a SHAPEFILE y vice versa"
+    
 authors  = ["Luis Acevedo", "<laar@pm.me>"]
+
 credits_ = ["https://github.com/ManishSahu53", "https://github.com/tomtl"]
-license_ = "Copyright 2020. All code is copyrighted by the respective authors.\n" + appname + " can be redistributed and/or modified under the terms of the GNU GPL versions 3 or by any future license endorsed by " + authors[0] + "." + "\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
+
+license_ = "Copyright 2020. All code is copyrighted by the respective authors.\n" \
++ appname + " can be redistributed and/or modified under the terms of \
+the GNU GPL versions 3 or by any future license endorsed by " + authors[0] + \
+".\nThis program is distributed in the hope that it will be useful, but \
+WITHOUT ANY WARRANTY; without even the implied warranty of \
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
+    
 third_party = "App logo - Icons by Orion Icon Library - https://orioniconlibrary.com"
 
 kml_file_names = list() # File list to convert from kml to shp
@@ -77,19 +88,19 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.btn_clear.clicked.connect(self.clear)
 
         # About
-        self.about.triggered.connect(self.about_)
+        self.actionAbout.triggered.connect(self.about_)
         
         # About Qt
-        self.about_qt.triggered.connect(self.aboutQt)
+        self.actionAbout_Qt.triggered.connect(self.aboutQt)
         
         # Authors
-        self.authors.triggered.connect(self.authors_)
+        self.actionAuthors.triggered.connect(self.authors_)
         
         # License
-        self.license.triggered.connect(self.license_)
+        self.actionLicense.triggered.connect(self.license_)
 
         # Third party
-        self.third_party.triggered.connect(self.third_party_)
+        self.actionthird_party.triggered.connect(self.third_party_)
 
         # Change theme
         self.btn_change_theme.setStyleSheet(

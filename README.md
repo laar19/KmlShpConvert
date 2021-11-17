@@ -1,16 +1,17 @@
 # KmlShpConvert
 
 ## Application to convert files with extension .kml (Keyhole Markup Language) to .shp (Shapefile), and vice versa
+
 ## This is a GRAPHICAL USER INTERFACE for GDAL library
 
 ## Luis Acevedo  <laar@pm.me>
 
 ## Technical information:
 
-Developed in python 3.8.x
-PySide2 as graphic library.
-GDAL as conversion library.
-Distributed under the GNU General Public License (GPLv3).
+- Developed in python 3.8
+- PySide2 as graphic library.
+- GDAL as conversion library
+- Distributed under the GNU General Public License (GPLv3)
 
 
 ## Binaries and installers

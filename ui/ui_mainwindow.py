@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'mainwindow.ui',
 # licensing of 'mainwindow.ui' applies.
 #
-# Created: Wed Nov 17 17:49:43 2021
+# Created: Wed Nov 17 17:57:52 2021
 #      by: pyside2-uic  running on PySide2 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -131,21 +131,21 @@ class Ui_MainWindow(object):
         self.actionLicencia.setObjectName("actionLicencia")
         self.actionAcerca_de_Qt = QtWidgets.QAction(MainWindow)
         self.actionAcerca_de_Qt.setObjectName("actionAcerca_de_Qt")
-        self.about_qt = QtWidgets.QAction(MainWindow)
-        self.about_qt.setObjectName("about_qt")
-        self.authors = QtWidgets.QAction(MainWindow)
-        self.authors.setObjectName("authors")
-        self.license = QtWidgets.QAction(MainWindow)
-        self.license.setObjectName("license")
-        self.about = QtWidgets.QAction(MainWindow)
-        self.about.setObjectName("about")
-        self.third_party = QtWidgets.QAction(MainWindow)
-        self.third_party.setObjectName("third_party")
-        self.menuHelp.addAction(self.about)
-        self.menuHelp.addAction(self.about_qt)
-        self.menuHelp.addAction(self.authors)
-        self.menuHelp.addAction(self.license)
-        self.menuHelp.addAction(self.third_party)
+        self.actionAbout_Qt = QtWidgets.QAction(MainWindow)
+        self.actionAbout_Qt.setObjectName("actionAbout_Qt")
+        self.actionAuthors = QtWidgets.QAction(MainWindow)
+        self.actionAuthors.setObjectName("actionAuthors")
+        self.actionLicense = QtWidgets.QAction(MainWindow)
+        self.actionLicense.setObjectName("actionLicense")
+        self.actionAbout = QtWidgets.QAction(MainWindow)
+        self.actionAbout.setObjectName("actionAbout")
+        self.actionthird_party = QtWidgets.QAction(MainWindow)
+        self.actionthird_party.setObjectName("actionthird_party")
+        self.menuHelp.addAction(self.actionAbout)
+        self.menuHelp.addAction(self.actionAbout_Qt)
+        self.menuHelp.addAction(self.actionAuthors)
+        self.menuHelp.addAction(self.actionLicense)
+        self.menuHelp.addAction(self.actionthird_party)
         self.menuBar.addAction(self.menuHelp.menuAction())
 
         self.retranslateUi(MainWindow)
@@ -172,9 +172,9 @@ class Ui_MainWindow(object):
         self.actionBuscar.setText(QtWidgets.QApplication.translate("MainWindow", "Buscar", None, -1))
         self.actionLicencia.setText(QtWidgets.QApplication.translate("MainWindow", "Licencia", None, -1))
         self.actionAcerca_de_Qt.setText(QtWidgets.QApplication.translate("MainWindow", "Acerca de Qt", None, -1))
-        self.about_qt.setText(QtWidgets.QApplication.translate("MainWindow", "Acerca de Qt", None, -1))
-        self.authors.setText(QtWidgets.QApplication.translate("MainWindow", "Autores", None, -1))
-        self.license.setText(QtWidgets.QApplication.translate("MainWindow", "Licencia", None, -1))
-        self.about.setText(QtWidgets.QApplication.translate("MainWindow", "Acerca de", None, -1))
-        self.third_party.setText(QtWidgets.QApplication.translate("MainWindow", "Third party", None, -1))
+        self.actionAbout_Qt.setText(QtWidgets.QApplication.translate("MainWindow", "Acerca de Qt", None, -1))
+        self.actionAuthors.setText(QtWidgets.QApplication.translate("MainWindow", "Autores", None, -1))
+        self.actionLicense.setText(QtWidgets.QApplication.translate("MainWindow", "Licencia", None, -1))
+        self.actionAbout.setText(QtWidgets.QApplication.translate("MainWindow", "Acerca de", None, -1))
+        self.actionthird_party.setText(QtWidgets.QApplication.translate("MainWindow", "Third party", None, -1))
 

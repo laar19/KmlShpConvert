@@ -282,11 +282,11 @@
     <property name="title">
      <string>Help</string>
     </property>
-    <addaction name="about"/>
-    <addaction name="about_qt"/>
-    <addaction name="authors"/>
-    <addaction name="license"/>
-    <addaction name="third_party"/>
+    <addaction name="actionAbout"/>
+    <addaction name="actionAbout_Qt"/>
+    <addaction name="actionAuthors"/>
+    <addaction name="actionLicense"/>
+    <addaction name="actionthird_party"/>
    </widget>
    <addaction name="menuHelp"/>
   </widget>
@@ -315,27 +315,27 @@
     <string>Acerca de Qt</string>
    </property>
   </action>
-  <action name="about_qt">
+  <action name="actionAbout_Qt">
    <property name="text">
     <string>Acerca de Qt</string>
    </property>
   </action>
-  <action name="authors">
+  <action name="actionAuthors">
    <property name="text">
     <string>Autores</string>
    </property>
   </action>
-  <action name="license">
+  <action name="actionLicense">
    <property name="text">
     <string>Licencia</string>
    </property>
   </action>
-  <action name="about">
+  <action name="actionAbout">
    <property name="text">
     <string>Acerca de</string>
    </property>
   </action>
-  <action name="third_party">
+  <action name="actionthird_party">
    <property name="text">
     <string>Third party</string>
    </property>

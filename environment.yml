@@ -6,6 +6,7 @@ dependencies:
   - _libgcc_mutex=0.1=conda_forge
   - _openmp_mutex=4.5=1_llvm
   - alsa-lib=1.2.3=h516909a_0
+  - altgraph=0.17=pyhd3eb1b0_0
   - boost-cpp=1.74.0=h312852a_4
   - bzip2=1.0.8=h7f98852_4
   - c-ares=1.18.1=h7f98852_0
@@ -32,6 +33,7 @@ dependencies:
   - giflib=5.2.1=h36c2ea0_2
   - glib=2.70.0=h780b84a_1
   - glib-tools=2.70.0=h780b84a_1
+  - gmp=6.2.1=h2531618_2
   - gst-plugins-base=1.18.5=hf529b03_1
   - gstreamer=1.18.5=h9f60fe5_1
   - hdf4=4.2.15=h10796ff_3
@@ -88,6 +90,7 @@ dependencies:
   - libzlib=1.2.11=h36c2ea0_1013
   - llvm-openmp=12.0.1=h4bd325d_1
   - lz4-c=1.9.3=h9c3ff4c_1
+  - macholib=1.14=pyhd3eb1b0_1
   - mysql-common=8.0.27=ha770c72_1
   - mysql-libs=8.0.27=hfa10184_1
   - ncurses=6.2=h58526e2_4
@@ -104,6 +107,8 @@ dependencies:
   - postgresql=13.3=h2510834_3
   - proj=8.1.1=h277dcde_2
   - pthread-stubs=0.4=h36c2ea0_1001
+  - pycryptodome=3.10.1=py38h3dc18e1_0
+  - pyinstaller=3.6=py38h8f29fe8_6
   - pyside2=5.13.2=py38h2009f50_4
   - python=3.8.12=hb7a2778_2_cpython
   - python_abi=3.8=2_cp38
