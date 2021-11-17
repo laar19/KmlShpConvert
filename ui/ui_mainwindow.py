@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'mainwindow.ui',
 # licensing of 'mainwindow.ui' applies.
 #
-# Created: Wed Nov 17 11:19:29 2021
+# Created: Wed Nov 17 12:39:52 2021
 #      by: pyside2-uic  running on PySide2 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -22,7 +22,7 @@ class Ui_MainWindow(object):
         self.tab_kml2shp = QtWidgets.QWidget()
         self.tab_kml2shp.setObjectName("tab_kml2shp")
         self.layoutWidget_4 = QtWidgets.QWidget(self.tab_kml2shp)
-        self.layoutWidget_4.setGeometry(QtCore.QRect(10, 10, 551, 311))
+        self.layoutWidget_4.setGeometry(QtCore.QRect(10, 10, 551, 301))
         self.layoutWidget_4.setObjectName("layoutWidget_4")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.layoutWidget_4)
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
