@@ -282,7 +282,7 @@
     <property name="title">
      <string>Help</string>
     </property>
-    <addaction name="version"/>
+    <addaction name="about"/>
     <addaction name="about_qt"/>
     <addaction name="authors"/>
     <addaction name="license"/>
@@ -330,9 +330,9 @@
     <string>Licencia</string>
    </property>
   </action>
-  <action name="version">
+  <action name="about">
    <property name="text">
-    <string>Version</string>
+    <string>Acerca de</string>
    </property>
   </action>
   <action name="third_party">

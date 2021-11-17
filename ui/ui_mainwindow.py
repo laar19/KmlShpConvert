@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'mainwindow.ui',
 # licensing of 'mainwindow.ui' applies.
 #
-# Created: Wed Nov 17 13:55:02 2021
+# Created: Wed Nov 17 17:49:43 2021
 #      by: pyside2-uic  running on PySide2 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -137,11 +137,11 @@ class Ui_MainWindow(object):
         self.authors.setObjectName("authors")
         self.license = QtWidgets.QAction(MainWindow)
         self.license.setObjectName("license")
-        self.version = QtWidgets.QAction(MainWindow)
-        self.version.setObjectName("version")
+        self.about = QtWidgets.QAction(MainWindow)
+        self.about.setObjectName("about")
         self.third_party = QtWidgets.QAction(MainWindow)
         self.third_party.setObjectName("third_party")
-        self.menuHelp.addAction(self.version)
+        self.menuHelp.addAction(self.about)
         self.menuHelp.addAction(self.about_qt)
         self.menuHelp.addAction(self.authors)
         self.menuHelp.addAction(self.license)
@@ -175,6 +175,6 @@ class Ui_MainWindow(object):
         self.about_qt.setText(QtWidgets.QApplication.translate("MainWindow", "Acerca de Qt", None, -1))
         self.authors.setText(QtWidgets.QApplication.translate("MainWindow", "Autores", None, -1))
         self.license.setText(QtWidgets.QApplication.translate("MainWindow", "Licencia", None, -1))
-        self.version.setText(QtWidgets.QApplication.translate("MainWindow", "Version", None, -1))
+        self.about.setText(QtWidgets.QApplication.translate("MainWindow", "Acerca de", None, -1))
         self.third_party.setText(QtWidgets.QApplication.translate("MainWindow", "Third party", None, -1))
 

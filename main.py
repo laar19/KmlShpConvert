@@ -4,18 +4,18 @@ import sys
 import qdarkstyle
 
 from PySide2.QtWidgets import QApplication, QMainWindow
-from PySide2.QtCore    import QFile
-from PySide2.QtUiTools import QUiLoader
+#from PySide2.QtCore    import QFile
+#from PySide2.QtUiTools import QUiLoader
 from PySide2.QtGui     import QPixmap
 
 from qdarkstyle.dark.palette  import DarkPalette
 from qdarkstyle.light.palette import LightPalette
 
 from library.functions import *
-from ui.ui_mainwindow import Ui_MainWindow
+from ui.ui_mainwindow  import Ui_MainWindow
 
 appname  = "KmlShpConvert"
-version  = "3.0"
+about    = "KmlShpConvert versión 3.0\nEste programa convierte archivos con formato KML a SHAPEFILE y vice versa"
 authors  = ["Luis Acevedo", "<laar@pm.me>"]
 credits_ = ["https://github.com/ManishSahu53", "https://github.com/tomtl"]
 license_ = "Copyright 2020. All code is copyrighted by the respective authors.\n" + appname + " can be redistributed and/or modified under the terms of the GNU GPL versions 3 or by any future license endorsed by " + authors[0] + "." + "\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
@@ -76,8 +76,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         )
         self.btn_clear.clicked.connect(self.clear)
 
-        # Version
-        self.version.triggered.connect(self.version_)
+        # About
+        self.about.triggered.connect(self.about_)
         
         # About Qt
         self.about_qt.triggered.connect(self.aboutQt)
@@ -209,8 +209,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         
         return completed
     
-    def version_(self):
-        QtWidgets.QMessageBox.about(self, "Version", version)
+    def about_(self):
+        QtWidgets.QMessageBox.about(self, "Acerca de", about)
 
     def aboutQt(self):
         QtWidgets.QMessageBox.aboutQt(self)
