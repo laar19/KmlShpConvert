@@ -28,3 +28,4 @@ https://sourceforge.net/projects/kmlshpconvert/
 ### Linux
 1.- pyinstaller main-linux.spec   
 2.- Then find into the environment folder: __libnsl.so.3__ and __libnsl.so.3.0.0__ and copy them into __main__ folder generated   
+3.- Copy images and resources files   
