@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['main.py'],
-             pathex=['/home/usuario01/Escritorio/code testing/KmlShpConvert'],
+             pathex=['/home/zurg/Desktop/code testing/KmlShpConvert'],
              binaries=[],
              datas=[],
              hiddenimports=['PySide2.QtXml', 'PySide2.QtWidgets', 'osgeo._gdal', 'gdal'],
