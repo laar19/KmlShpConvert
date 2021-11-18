@@ -55,17 +55,17 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.label_gdal2.setPixmap(pixmap)
         
         # Search files button
-        pixmap = QPixmap("ui/resources/icons/Start-Menu-Search-icon.png")
+        pixmap = QPixmap("ui/resources/img/Start-Menu-Search-icon.png")
         self.btn_search.setIcon(pixmap)
         self.btn_search.clicked.connect(self.search)
 
         # Convert from kml to shp button
-        pixmap = QPixmap("ui/resources/icons/Accept-icon.png")
+        pixmap = QPixmap("ui/resources/img/Accept-icon.png")
         self.btn_accept.setIcon(pixmap)
         self.btn_accept.clicked.connect(self.conversion)
 
         # Clear file list button
-        pixmap = QPixmap("ui/resources/icons/Actions-edit-clear-locationbar-rtl-icon.png")
+        pixmap = QPixmap("ui/resources/img/Actions-edit-clear-locationbar-rtl-icon.png")
         self.btn_clear.setIcon(pixmap)
         self.btn_clear.clicked.connect(self.clear)
 

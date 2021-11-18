@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'mainwindow.ui',
 # licensing of 'mainwindow.ui' applies.
 #
-# Created: Wed Nov 17 17:57:52 2021
+# Created: Thu Nov 18 10:01:51 2021
 #      by: pyside2-uic  running on PySide2 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -102,18 +102,24 @@ class Ui_MainWindow(object):
         self.label_7 = QtWidgets.QLabel(self.layoutWidget1)
         self.label_7.setObjectName("label_7")
         self.gridLayout_2.addWidget(self.label_7, 1, 1, 1, 1)
-        self.btn_search = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_search.setGeometry(QtCore.QRect(600, 40, 85, 41))
+        self.widget = QtWidgets.QWidget(self.centralwidget)
+        self.widget.setGeometry(QtCore.QRect(600, 40, 87, 121))
+        self.widget.setObjectName("widget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.widget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.btn_search = QtWidgets.QPushButton(self.widget)
         self.btn_search.setIconSize(QtCore.QSize(32, 32))
         self.btn_search.setObjectName("btn_search")
-        self.btn_clear = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_clear.setGeometry(QtCore.QRect(600, 90, 85, 41))
+        self.verticalLayout.addWidget(self.btn_search)
+        self.btn_clear = QtWidgets.QPushButton(self.widget)
         self.btn_clear.setIconSize(QtCore.QSize(32, 32))
         self.btn_clear.setObjectName("btn_clear")
-        self.btn_accept = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_accept.setGeometry(QtCore.QRect(600, 140, 85, 41))
+        self.verticalLayout.addWidget(self.btn_clear)
+        self.btn_accept = QtWidgets.QPushButton(self.widget)
         self.btn_accept.setIconSize(QtCore.QSize(32, 32))
         self.btn_accept.setObjectName("btn_accept")
+        self.verticalLayout.addWidget(self.btn_accept)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menuBar = QtWidgets.QMenuBar(MainWindow)
         self.menuBar.setGeometry(QtCore.QRect(0, 0, 695, 22))
