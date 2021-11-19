@@ -138,7 +138,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     # Convert selected kml files
     def conversion(self):
-        tmp = QtWidgets.QFileDialog.getSaveFileName(self, ("Save F:xile"), "CONVERTS",)
+        tmp = QtWidgets.QFileDialog.getSaveFileName(self, ("Save F:xile"), "SELECCIONE LA CARPETA DE DESTINO",)
         tmp = tmp[0].split("/")
 
         if len(tmp) > 1:
