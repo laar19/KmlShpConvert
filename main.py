@@ -3,10 +3,12 @@
 import sys
 import qdarkstyle
 
-from PySide2.QtWidgets import QApplication, QMainWindow
+#from PySide2.QtWidgets import QApplication, QMainWindow
+from qtpy.QtWidgets import QApplication, QMainWindow
 #from PySide2.QtCore    import QFile
 #from PySide2.QtUiTools import QUiLoader
-from PySide2.QtGui     import QPixmap
+#from PySide2.QtGui     import QPixmap
+from qtpy.QtGui     import QPixmap
 
 from qdarkstyle.dark.palette  import DarkPalette
 from qdarkstyle.light.palette import LightPalette

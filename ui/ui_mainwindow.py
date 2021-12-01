@@ -8,7 +8,8 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-from PySide2 import QtCore, QtGui, QtWidgets
+#from PySide2 import QtCore, QtGui, QtWidgets
+from qtpy import QtCore, QtGui, QtWidgets
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -183,4 +184,3 @@ class Ui_MainWindow(object):
         self.actionLicense.setText(QtWidgets.QApplication.translate("MainWindow", "Licencia", None, -1))
         self.actionAbout.setText(QtWidgets.QApplication.translate("MainWindow", "Acerca de", None, -1))
         self.actionthird_party.setText(QtWidgets.QApplication.translate("MainWindow", "Third party", None, -1))
-

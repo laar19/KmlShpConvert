@@ -1,5 +1,6 @@
 from library  import ogr2ogr
-from PySide2  import QtWidgets
+#from PySide2  import QtWidgets
+from qtpy     import QtWidgets
 from datetime import datetime
 
 # Convert selected file list_ to string
