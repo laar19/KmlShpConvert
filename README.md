@@ -9,7 +9,7 @@
 ## Technical information:
 
 - Developed in python 3.8
-- PySide2 as graphic library.
+- PyQt5 as graphic library.
 - GDAL as conversion library
 - Distributed under the GNU General Public License (GPLv3)
 

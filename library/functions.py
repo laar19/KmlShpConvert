@@ -1,5 +1,4 @@
 from library  import ogr2ogr
-#from PySide2  import QtWidgets
 from qtpy     import QtWidgets
 from datetime import datetime
 
