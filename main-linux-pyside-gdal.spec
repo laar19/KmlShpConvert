@@ -4,10 +4,10 @@ block_cipher = None
 
 
 a = Analysis(['main.py'],
-             pathex=['C:\\Users\\usuario01\\Desktop\\development\\KmlShpConvert'],
+             pathex=['/home/zurg/Desktop/code testing/KmlShpConvert'],
              binaries=[],
              datas=[],
-             hiddenimports=[],
+             hiddenimports=['PySide2.QtXml', 'PySide2.QtWidgets', 'osgeo._gdal', 'gdal'],
              hookspath=[],
              runtime_hooks=[],
              excludes=[],
@@ -26,7 +26,7 @@ exe = EXE(pyz,
           bootloader_ignore_signals=False,
           strip=False,
           upx=True,
-          console=False , icon='ui\\resources\\img\\icon.ico')
+          console=False )
 coll = COLLECT(exe,
                a.binaries,
                a.zipfiles,
