@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['main.py'],
-             pathex=['/home/usuario/Desktop/development/KmlShpConvert'],
+             pathex=['/home/usuario01/Escritorio/code testing/KmlShpConvert'],
              binaries=[],
              datas=[],
              hiddenimports=[],

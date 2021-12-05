@@ -2,6 +2,7 @@
 
 import sys
 import qdarkstyle
+import os
 
 from qtpy.QtWidgets import QApplication, QMainWindow
 from qtpy.QtGui     import QPixmap, QIcon
@@ -30,6 +31,16 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
     
 third_party = "App logo - Icons by Orion Icon Library - https://orioniconlibrary.com"
 
+# Resources path
+tmp_path1 = "ui/resources/img/"
+tmp_path2 = "KmlShpConvert.AppDir/usr/bin/ui/resources/img/"
+path      = str()
+
+if(os.path.exists(tmp_path1)):
+    path = tmp_path1
+else:
+    path = tmp_path2
+
 kml_file_names = list() # File list to convert from kml to shp
 shp_file_names = list() # File list to convert from shp to kml
 completed = 0           # Used in progress bar
@@ -49,21 +60,21 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def connectSignalsSlots(self):
         self.progressBar.setValue(0) # Progress bar
         
-        pixmap = QPixmap("ui/resources/img/gdalicon.png")
+        pixmap = QPixmap(path+"gdalicon.png")
         self.label_gdal2.setPixmap(pixmap)
         
         # Search files button
-        pixmap = QIcon("ui/resources/img/Start-Menu-Search-icon.png")
+        pixmap = QIcon(path+"Start-Menu-Search-icon.png")
         self.btn_search.setIcon(pixmap)
         self.btn_search.clicked.connect(self.search)
 
         # Convert from kml to shp button
-        pixmap = QIcon("ui/resources/img/Accept-icon.png")
+        pixmap = QIcon(path+"Accept-icon.png")
         self.btn_accept.setIcon(pixmap)
         self.btn_accept.clicked.connect(self.conversion)
 
         # Clear file list button
-        pixmap = QIcon("ui/resources/img/Actions-edit-clear-locationbar-rtl-icon.png")
+        pixmap = QIcon(path+"Actions-edit-clear-locationbar-rtl-icon.png")
         self.btn_clear.setIcon(pixmap)
         self.btn_clear.clicked.connect(self.clear)
 
