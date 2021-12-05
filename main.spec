@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['main.py'],
-             pathex=['C:\\Users\\usuario01\\Desktop\\development\\KmlShpConvert'],
+             pathex=['/home/usuario/Desktop/development/KmlShpConvert'],
              binaries=[],
              datas=[],
              hiddenimports=[],
@@ -26,7 +26,7 @@ exe = EXE(pyz,
           bootloader_ignore_signals=False,
           strip=False,
           upx=True,
-          console=False , icon='ui\\resources\\img\\icon.ico')
+          console=False , icon='ui/resources/img/icon.ico')
 coll = COLLECT(exe,
                a.binaries,
                a.zipfiles,
