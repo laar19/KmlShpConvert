@@ -26,5 +26,5 @@ https://sourceforge.net/projects/kmlshpconvert/
 
 ## Pyinstaller build
 ### Linux and windows
-1.- pyinstaller main.py   
+1.- pyinstaller --noconsole --icon=ui/resources/img/icon.ico main.py   
 2.- Copy __/ui__ folder into __main__ folder generated   
