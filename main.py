@@ -3,117 +3,114 @@
 import sys
 import qdarkstyle
 import os
+from qtpy.QtWidgets import QApplication, QMainWindow, QMessageBox, QAction, QFileDialog
+from qtpy.QtGui import QPixmap, QIcon
 
-from qtpy.QtWidgets import QApplication, QMainWindow
-from qtpy.QtGui     import QPixmap, QIcon
-
-from qdarkstyle.dark.palette  import DarkPalette
+from qdarkstyle.dark.palette import DarkPalette
 from qdarkstyle.light.palette import LightPalette
 
 from library.functions import *
-from ui.ui_mainwindow  import Ui_MainWindow
+from ui.ui_mainwindow import Ui_MainWindow
 
-appname  = "KmlShpConvert"
+appname = "KmlShpConvert"
 
-about    = appname + " versión 3.0\n\nEste programa convierte archivos con \
-\nformato KML a SHAPEFILE y vice versa"
-    
-authors  = ["Luis Acevedo", "<laar@pm.me>"]
+about = appname + " versión 4.0\n\nEste programa convierte archivos con formato KML a SHAPEFILE y viceversa"
+
+authors = ["Luis Acevedo", "<laar@pm.me>"]
 
 credits_ = ["https://github.com/ManishSahu53", "https://github.com/tomtl"]
 
-license_ = "Copyright 2020. All code is copyrighted by the respective authors.\n" \
-+ appname + " can be redistributed and/or modified under the terms of \
-the GNU GPL versions 3 or by any future license endorsed by " + authors[0] + \
-".\nThis program is distributed in the hope that it will be useful, but \
-WITHOUT ANY WARRANTY; without even the implied warranty of \
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
-    
+license_ = "Copyright 2020. All code is copyrighted by the respective authors.\n" + appname + " can be redistributed and/or modified under the terms of the GNU GPL versions 3 or by any future license endorsed by " + authors[0] + ".\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
+
 third_party = "App logo - Icons by Orion Icon Library - https://orioniconlibrary.com"
 
 # Resources path
 tmp_path1 = "ui/resources/img/"
 tmp_path2 = "KmlShpConvert.AppDir/usr/bin/ui/resources/img/"
-path      = str()
+path = tmp_path1 if os.path.exists(tmp_path1) else tmp_path2
 
-if(os.path.exists(tmp_path1)):
-    path = tmp_path1
-else:
-    path = tmp_path2
+kml_file_names = list()
+shp_file_names = list()
+completed = 0
 
-kml_file_names = list() # File list to convert from kml to shp
-shp_file_names = list() # File list to convert from shp to kml
-completed = 0           # Used in progress bar
+def show_version_info():
+    version_text = (
+        f"Python Version: {sys.version}\n"
+        f"QtPy Version: {qtpy.__version__}\n"
+        f"Qt Binding: {qtpy.API_NAME}\n"
+        f"Qt Binding Version: {qtpy.QtCore.__version__}"
+    )
+    QMessageBox.information(None, "Version Info", version_text)
+
+def handle_fontconfig_error():
+    try:
+        import fontTools.ttLib
+    except Exception as e:
+        QMessageBox.warning(None, "Fontconfig Error", f"Fontconfig error: {e}")
+
+def safe_field_name(field_name):
+    try:
+        return field_name.encode('ISO-8859-1').decode('ISO-8859-1')
+    except UnicodeEncodeError:
+        return field_name.encode('utf-8').decode('utf-8')
+
+def resource_path(relative_path):
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath("."), relative_path)
+
+def select_multiple_files(dialog):
+    dialog.setFileMode(QFileDialog.ExistingFiles)
 
 class MainWindow(QMainWindow, Ui_MainWindow):
-    """
-    def __init__(self):
-        super(MainWindow, self).__init__()
-        self.ui = Ui_MainWindow()
-        self.ui.setupUi(self)
-    """
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setupUi(self)
         self.connectSignalsSlots()
 
     def connectSignalsSlots(self):
-        self.progressBar.setValue(0) # Progress bar
-        
-        pixmap = QPixmap(path+"gdalicon.png")
+        self.progressBar.setValue(0)
+
+        pixmap = QPixmap(resource_path("ui/resources/img/gdalicon.png"))
         self.label_gdal2.setPixmap(pixmap)
-        
-        # Search files button
-        pixmap = QIcon(path+"Start-Menu-Search-icon.png")
+
+        pixmap = QIcon(resource_path("ui/resources/img/Start-Menu-Search-icon.png"))
         self.btn_search.setIcon(pixmap)
         self.btn_search.clicked.connect(self.search)
 
-        # Convert from kml to shp button
-        pixmap = QIcon(path+"Accept-icon.png")
+        pixmap = QIcon(resource_path("ui/resources/img/Accept-icon.png"))
         self.btn_accept.setIcon(pixmap)
         self.btn_accept.clicked.connect(self.conversion)
 
-        # Clear file list button
-        pixmap = QIcon(path+"Actions-edit-clear-locationbar-rtl-icon.png")
+        pixmap = QIcon(resource_path("ui/resources/img/Actions-edit-clear-locationbar-rtl-icon.png"))
         self.btn_clear.setIcon(pixmap)
         self.btn_clear.clicked.connect(self.clear)
 
-        # About
         self.actionAbout.triggered.connect(self.about_)
-        
-        # About Qt
         self.actionAbout_Qt.triggered.connect(self.aboutQt)
-        
-        # Authors
         self.actionAuthors.triggered.connect(self.authors_)
-        
-        # License
         self.actionLicense.triggered.connect(self.license_)
-
-        # Third party
         self.actionthird_party.triggered.connect(self.third_party_)
 
-        # Change theme
+        version_action = QAction("Version Info", self)
+        version_action.triggered.connect(show_version_info)
+        self.menuHelp.addAction(version_action)
+
         self.btn_change_theme.setStyleSheet(
-            "QPushButton { background-color: purple; } \
-                QPushButton::hover { \
-                background-color: grey; \
-            }"
+            "QPushButton { background-color: purple; }"
+            "QPushButton::hover { background-color: grey; }"
         )
         self.btn_change_theme.setCheckable(True)
-        #self.btn_change_theme.setChecked(True)
         self.btn_change_theme.clicked.connect(self.toggle_theme)
 
-        # Exit
         self.btn_exit.clicked.connect(self.exit)
 
-    # Search kml files in file system
     def search(self):
-        aux = list()
+        aux = []
 
-        dialog = QtWidgets.QFileDialog(self)
-        dialog.setFileMode(QtWidgets.QFileDialog.AnyFile)
-        
+        dialog = QFileDialog(self)
+        select_multiple_files(dialog)
+
         currentTabName = self.tabWidget.currentWidget().objectName()
         if currentTabName == "tab_kml2shp":
             dialog.setNameFilter("File (*.kml *.kmz)")
@@ -124,42 +121,29 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             global shp_file_names
             aux = shp_file_names
 
-        dialog.setViewMode(QtWidgets.QFileDialog.Detail)
+        dialog.setViewMode(QFileDialog.Detail)
 
-        """
-        # Select one file
-        if dialog.exec_():
-            aux.append(dialog.selectedFiles()[0]) # Add selected kml to file list to convert
-
-        self.kml_file_list.setText(list_to_string(kml_file_names)) # Show selected kml file
-        """
-
-        #Select multiple files
-        select_multiple_files(dialog)
         if dialog.exec():
-            for i in dialog.selectedFiles():
-                aux.append(i) # Add selected kml to files list to convert
+            for file in dialog.selectedFiles():
+                aux.append(file)
 
         if currentTabName == "tab_kml2shp":
-            self.kml_file_list.setText(list_to_string(aux)) # Show selected kml files
+            self.kml_file_list.setText(list_to_string(aux))
         else:
-            self.shp_file_list.setText(list_to_string(aux)) # Show selected shp files
+            self.shp_file_list.setText(list_to_string(aux))
 
-    # Convert selected kml files
     def conversion(self):
-        tmp = QtWidgets.QFileDialog.getSaveFileName(self, ("Save F:xile"), "SELECCIONE LA CARPETA DE DESTINO",)
+        tmp = QFileDialog.getSaveFileName(self, "Save File", "SELECCIONE LA CARPETA DE DESTINO")
         tmp = tmp[0].split("/")
 
         if len(tmp) > 1:
-            save_path = ""
+            save_path = "/"
             for i in tmp[1:-1]:
                 save_path += i + "/"
-            save_path = "/" + save_path
-            
-            aux = list()
+
+            aux = []
 
             global completed
-            completed = completed
             completed = 0
 
             currentTabName = self.tabWidget.currentWidget().objectName()
@@ -173,28 +157,27 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 aux = shp_file_names
 
             if len(aux) == 0:
-                QtWidgets.QMessageBox.critical(self, "Error", "Debe seleccionar por lo menos un archivo")
+                QMessageBox.critical(self, "Error", "Debe seleccionar por lo menos un archivo")
             else:
                 self.label_status.setText("Convirtiendo...")
-                button_reply = QtWidgets.QMessageBox.question(self, "Confirmar", "Proceder")
-                if button_reply == QtWidgets.QMessageBox.Yes:
+                button_reply = QMessageBox.question(self, "Confirmar", "Proceder")
+                if button_reply == QMessageBox.Yes:
                     self.progressBar.setValue(5)
                     for i in range(len(aux)):
                         try:
-                            tmp         = aux[i].split("/")
+                            tmp = aux[i].split("/")
                             output_name = save_path + tmp[-1]
-                            
+
                             convert_function(aux[i], output_name, i)
-                            
+
                             completed = self.update_progress_bar(len(aux), completed)
-                        except:
-                            QtWidgets.QMessageBox.critical(self, "Error", "Ocurrió un error durante la conversión.\n" + "El archivo: " + aux2 + "\nPosiblemente esté corrupto o dañado")
+                        except Exception as e:
+                            QMessageBox.critical(self, "Error", f"Ocurrió un error durante la conversión.\nEl archivo: {aux[i]}\nError: {str(e)}")
                     self.label_status.setText("Ready")
-                    QtWidgets.QMessageBox.about(self, "Listo", "Conversión exitosa")
+                    QMessageBox.about(self, "Listo", "Conversión exitosa")
                 else:
                     self.label_status.setText("Ready")
 
-    # Clear selected file list
     def clear(self):
         self.kml_file_list.setText("")
         self.shp_file_list.setText("")
@@ -208,24 +191,24 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         if completed < 100:
             completed += increment
             self.progressBar.setValue(completed)
-        
+
         return completed
-    
+
     def about_(self):
-        QtWidgets.QMessageBox.about(self, "Acerca de", about)
+        QMessageBox.about(self, "Acerca de", about)
 
     def aboutQt(self):
-        QtWidgets.QMessageBox.aboutQt(self)
-        
+        QMessageBox.aboutQt(self)
+
     def authors_(self):
-        text = "Autores:\n" + authors[0] + " " + authors[1] + "\n\n\n" + "Cŕeditos:\n" + credits_[0] + "\n" + credits_[1]
-        QtWidgets.QMessageBox.about(self, "Autores", text)
-        
+        text = "Autores:\n" + authors[0] + " " + authors[1] + "\n\n" + "Créditos:\n" + credits_[0] + "\n" + credits_[1]
+        QMessageBox.about(self, "Autores", text)
+
     def license_(self):
-        QtWidgets.QMessageBox.about(self, "Licencia", license_)
+        QMessageBox.about(self, "Licencia", license_)
 
     def third_party_(self):
-        QtWidgets.QMessageBox.about(self, "Third party", third_party)
+        QMessageBox.about(self, "Third party", third_party)
 
     def toggle_theme(self):
         if not self.btn_change_theme.isChecked():
@@ -237,7 +220,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         sys.exit()
 
 if __name__ == "__main__":
-    
     print("\n" + appname + " Copyright (C) 2020 " + authors[0] + ".\nEste programa viene con ABSOLUTAMENTE NINGUNA GARANTÍA.\nEsto es software libre, y le invitamos a redistribuirlo\nbajo ciertas condiciones.\nPor favor, leer el archivo README.")
 
     app = QApplication(sys.argv)
